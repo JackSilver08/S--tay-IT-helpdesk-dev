@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10233b" />
+    <meta
+      name="description"
+      content="Sổ tay xử lý sự cố căn bản cho IT Helpdesk: Hardware, Windows, LAN, Wi-Fi, Internet, DNS, DHCP, máy in và CMD."
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sổ tay xử lý sự cố căn bản cho IT Helpdesk</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+    <div class="reading-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+    <header class="topbar">
+      <a class="brand" href="#bat-dau" aria-label="Về đầu sổ tay">
+        <span class="brand-mark" aria-hidden="true">IT</span>
+        <span class="brand-copy"><strong>SỔ TAY XỬ LÝ SỰ CỐ</strong><small>IT HELPDESK · PHIÊN BẢN 1.0</small></span>
+      </a>
+
+      <div class="topbar-meta" aria-label="Thông tin tài liệu">
+        <span class="pulse" aria-hidden="true"></span>
+        <span>TÀI LIỆU THỰC HÀNH</span>
+        <span class="meta-divider" aria-hidden="true"></span>
+        <span>12 CHƯƠNG</span>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="sr-only">Mở mục lục</span>
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Mục lục sổ tay">
+        <div class="sidebar-top">
+          <p class="sidebar-label">MỤC LỤC / 13</p>
+          <nav class="toc" id="desktop-toc">
+            <a href="#bat-dau" data-nav-link="bat-dau"><span>00</span> Bắt đầu</a>
+            <a href="#tu-duy" data-nav-link="tu-duy"><span>01</span> Tư duy troubleshooting</a>
+            <a href="#ticket" data-nav-link="ticket"><span>02</span> Tiếp nhận &amp; xử lý ticket</a>
+            <a href="#phan-cung" data-nav-link="phan-cung"><span>03</span> Phần cứng &amp; kết nối vật lý</a>
+            <a href="#wifi" data-nav-link="wifi"><span>04</span> Xử lý Wi-Fi</a>
+            <a href="#lan" data-nav-link="lan"><span>05</span> Xử lý mạng LAN</a>
+            <a href="#internet" data-nav-link="internet"><span>06</span> Internet, DNS &amp; DHCP</a>
+            <a href="#may-in" data-nav-link="may-in"><span>07</span> Xử lý máy in</a>
+            <a href="#windows" data-nav-link="windows"><span>08</span> Process, service &amp; driver</a>
+            <a href="#o-dia" data-nav-link="o-dia"><span>09</span> Windows &amp; ổ đĩa</a>
+            <a href="#dieu-tra" data-nav-link="dieu-tra"><span>10</span> Điều tra mạng cơ bản</a>
+            <a href="#lenh" data-nav-link="lenh"><span>11</span> Trang lệnh CMD</a>
+            <a href="#checklist" data-nav-link="checklist"><span>12</span> Checklist Helpdesk</a>
+            <a href="#quick-ref" data-nav-link="quick-ref"><span>PL</span> Quick Reference</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <p>PHÍM TẮT</p>
+          <button class="text-button" type="button" data-focus-search>Tìm nhanh <kbd>/</kbd></button>
+          <a class="text-button" href="So_Tay_IT_Helpdesk_Can_Ban.pdf" target="_blank" rel="noopener">Bản PDF gốc <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+
+      <aside class="mobile-nav" id="mobile-nav" aria-label="Mục lục trên điện thoại" aria-hidden="true">
+        <div class="mobile-nav-head">
+          <p>MỤC LỤC</p>
+          <button type="button" class="mobile-nav-close" aria-label="Đóng mục lục">×</button>
+        </div>
+        <nav class="toc">
+          <a href="#bat-dau" data-nav-link="bat-dau"><span>00</span> Bắt đầu</a>
+          <a href="#tu-duy" data-nav-link="tu-duy"><span>01</span> Tư duy troubleshooting</a>
+          <a href="#ticket" data-nav-link="ticket"><span>02</span> Tiếp nhận &amp; xử lý ticket</a>
+          <a href="#phan-cung" data-nav-link="phan-cung"><span>03</span> Phần cứng &amp; kết nối vật lý</a>
+          <a href="#wifi" data-nav-link="wifi"><span>04</span> Xử lý Wi-Fi</a>
+          <a href="#lan" data-nav-link="lan"><span>05</span> Xử lý mạng LAN</a>
+          <a href="#internet" data-nav-link="internet"><span>06</span> Internet, DNS &amp; DHCP</a>
+          <a href="#may-in" data-nav-link="may-in"><span>07</span> Xử lý máy in</a>
+          <a href="#windows" data-nav-link="windows"><span>08</span> Process, service &amp; driver</a>
+          <a href="#o-dia" data-nav-link="o-dia"><span>09</span> Windows &amp; ổ đĩa</a>
+          <a href="#dieu-tra" data-nav-link="dieu-tra"><span>10</span> Điều tra mạng cơ bản</a>
+          <a href="#lenh" data-nav-link="lenh"><span>11</span> Trang lệnh CMD</a>
+          <a href="#checklist" data-nav-link="checklist"><span>12</span> Checklist Helpdesk</a>
+          <a href="#quick-ref" data-nav-link="quick-ref"><span>PL</span> Quick Reference</a>
+        </nav>
+        <a class="text-button mobile-nav-pdf" href="So_Tay_IT_Helpdesk_Can_Ban.pdf" target="_blank" rel="noopener">Bản PDF gốc <span aria-hidden="true">↗</span></a>
+      </aside>
+      <button class="nav-scrim" type="button" aria-label="Đóng mục lục"></button>
+
+      <main id="main-content">
+        <!-- ============================ BÌA ============================ -->
+        <section class="hero section-observed" id="bat-dau" data-section tabindex="-1">
+          <div class="hero-grid"></div>
+          <div class="hero-copy">
+            <p class="eyebrow"><span>IT HELPDESK</span> / TROUBLESHOOTING HANDBOOK</p>
+            <h1>Sổ tay<br /><em>xử lý sự cố</em><br />căn bản.</h1>
+            <p class="hero-lead">
+              Hardware · Windows · LAN · Wi-Fi · Internet · DNS · DHCP · Máy in · CMD
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#tu-duy">Bắt đầu chẩn đoán <span aria-hidden="true">↓</span></a>
+              <a class="button button-ghost" href="#quick-ref">Tra nhanh triệu chứng</a>
+            </div>
+          </div>
+
+          <aside class="hero-rule">
+            <p class="card-kicker">NGUYÊN TẮC VÀNG</p>
+            <blockquote>
+              Luôn xác định lỗi trước khi reset. Một lệnh sửa tốt là lệnh trả lời được một câu hỏi chẩn đoán cụ thể.
+            </blockquote>
+            <p class="hero-rule-foot">Phiên bản 1.0 · Tài liệu thực hành</p>
+          </aside>
+        </section>
+
+        <!-- ===================== QUY TRÌNH 6 BƯỚC ====================== -->
+        <section class="process-band" aria-labelledby="process-title">
+          <div class="section-label">
+            <span>MỤC TIÊU TÀI LIỆU</span>
+            <h2 id="process-title">Sáu bước, theo đúng thứ tự</h2>
+          </div>
+          <ol class="process-flow">
+            <li><span class="process-step">01</span><strong>Triệu chứng</strong><small>Người dùng gặp gì</small></li>
+            <li><span class="process-step">02</span><strong>Kiểm tra vật lý</strong><small>Nguồn, dây, đèn báo</small></li>
+            <li><span class="process-step">03</span><strong>Kiểm tra Windows / CMD</strong><small>Adapter, IP, lệnh</small></li>
+            <li><span class="process-step">04</span><strong>Khoanh vùng nguyên nhân</strong><small>Tầng nào đang lỗi</small></li>
+            <li><span class="process-step">05</span><strong>Xử lý</strong><small>Thay đổi nhỏ nhất</small></li>
+            <li><span class="process-step">06</span><strong>Xác nhận sau sửa</strong><small>Bằng chính triệu chứng đầu</small></li>
+          </ol>
+        </section>
+
+        <!-- ========================== TRIAGE =========================== -->
+        <section class="triage-strip" id="triage" aria-labelledby="triage-title">
+          <div class="section-label">
+            <span>VÀO VIỆC NGAY</span>
+            <h2 id="triage-title">Người dùng đang báo gì?</h2>
+          </div>
+          <div class="triage-cards">
+            <a class="triage-card" href="#wifi">
+              <span class="card-index">04</span>
+              <strong>Wi-Fi không thấy mạng<br />hoặc không có Internet</strong>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="triage-card" href="#internet">
+              <span class="card-index">06</span>
+              <strong>Không mở được tên miền<br />hoặc không nhận IP</strong>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="triage-card" href="#may-in">
+              <span class="card-index">07</span>
+              <strong>Máy in Offline<br />hoặc không in được</strong>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ========================== TÌM KIẾM ========================= -->
+        <section class="search-panel" aria-labelledby="search-title">
+          <div>
+            <p class="eyebrow">TRA CỨU</p>
+            <h2 id="search-title">Tìm lệnh, triệu chứng hoặc tình huống</h2>
+          </div>
+          <div class="search-box">
+            <label class="sr-only" for="guide-search">Tìm trong sổ tay</label>
+            <span aria-hidden="true">⌕</span>
+            <input id="guide-search" type="search" placeholder="Ví dụ: ipconfig, 169.254, spooler, DNS…" autocomplete="off" />
+            <kbd>/</kbd>
+          </div>
+          <p class="search-feedback" id="search-feedback" aria-live="polite">Gõ để lọc theo triệu chứng hoặc tên lệnh.</p>
+        </section>
+
+        <!-- ==================== CHƯƠNG 1: TƯ DUY ====================== -->
+        <article class="chapter chapter-alt section-observed" id="tu-duy" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">01</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 1</p>
+              <h2>Tư duy<br /><em>troubleshooting.</em></h2>
+            </div>
+            <p class="chapter-deck">
+              IT Helpdesk không bắt đầu bằng câu hỏi “chạy lệnh nào?”. Hãy bắt đầu bằng “triệu chứng là gì, phạm vi ảnh
+              hưởng ở đâu và tầng nào đang lỗi?”.
+            </p>
+          </header>
+
+          <div class="split-layout">
+            <section class="ladder-card searchable" data-searchable data-search-text="nguyên tắc kiểm tra từ gần đến xa nguồn dây đèn báo adapter ip gateway dns">
+              <p class="card-kicker">NGUYÊN TẮC KIỂM TRA TỪ GẦN ĐẾN XA</p>
+              <ol class="ladder">
+                <li><span class="ladder-index">1</span><div><strong>Kết nối vật lý</strong><p>Kiểm tra nguồn, dây, đèn báo và kết nối vật lý.</p></div></li>
+                <li><span class="ladder-index">2</span><div><strong>Thiết bị trên Windows</strong><p>Kiểm tra adapter hoặc thiết bị ngoại vi trên Windows.</p></div></li>
+                <li><span class="ladder-index">3</span><div><strong>Cấu hình mạng</strong><p>Kiểm tra cấu hình IP, Gateway, DNS và trạng thái kết nối.</p></div></li>
+                <li><span class="ladder-index">4</span><div><strong>Đường ra ngoài</strong><p>Kiểm tra đường đi ra ngoài mạng nội bộ.</p></div></li>
+                <li><span class="ladder-index">5</span><div><strong>Sửa và xác nhận</strong><p>Khắc phục với thay đổi nhỏ nhất, sau đó xác nhận lại bằng cùng triệu chứng ban đầu.</p></div></li>
+              </ol>
+            </section>
+
+            <aside class="note-card caution-card searchable" data-searchable data-search-text="không sửa mò reset mất cấu hình biến số nguyên nhân">
+              <p class="card-kicker">KHÔNG SỬA MÒ</p>
+              <h3>Reset hàng loạt làm bạn mất dấu vết.</h3>
+              <p>
+                Không nên chạy hàng loạt lệnh reset chỉ vì máy không vào Internet. Reset có thể làm mất cấu hình, gây
+                thêm biến số và khiến việc xác định nguyên nhân khó hơn.
+              </p>
+            </aside>
+          </div>
+        </article>
+
+        <!-- ==================== CHƯƠNG 2: TICKET ====================== -->
+        <article class="chapter section-observed" id="ticket" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">02</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 2</p>
+              <h2>Quy trình tiếp nhận<br /><em>và xử lý ticket.</em></h2>
+            </div>
+            <p class="chapter-deck">Hỏi đúng câu hỏi, chụp lại baseline trước khi đổi bất cứ thứ gì, và chỉ đóng ticket khi người dùng làm được việc.</p>
+          </header>
+
+          <section class="block searchable" data-searchable data-search-text="hỏi đúng câu hỏi lỗi xảy ra từ khi nào nhiều máy wifi dây thông báo lỗi người dùng đã thử">
+            <h3 class="block-title"><span class="block-index">1</span> Hỏi đúng câu hỏi</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th scope="col">Câu hỏi</th><th scope="col">Mục đích</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Câu hỏi">Lỗi xảy ra từ khi nào?</td><td data-label="Mục đích">Xác định thời điểm và thay đổi gần đây.</td></tr>
+                  <tr><td data-label="Câu hỏi">Chỉ máy này lỗi hay nhiều máy cùng lỗi?</td><td data-label="Mục đích">Khoanh vùng Endpoint hay hạ tầng.</td></tr>
+                  <tr><td data-label="Câu hỏi">Thiết bị kết nối bằng Wi-Fi hay dây mạng?</td><td data-label="Mục đích">Chọn nhánh kiểm tra.</td></tr>
+                  <tr><td data-label="Câu hỏi">Có thông báo lỗi nào không?</td><td data-label="Mục đích">Lấy bằng chứng thay vì đoán.</td></tr>
+                  <tr><td data-label="Câu hỏi">Người dùng đã thử gì?</td><td data-label="Mục đích">Tránh lặp lại thao tác hoặc bỏ sót thay đổi.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="block searchable" data-searchable data-search-text="baseline hostname whoami ipconfig all netsh wlan show interfaces thời điểm thông báo lỗi">
+            <h3 class="block-title"><span class="block-index">2</span> Ghi nhận baseline trước khi thay đổi</h3>
+            <div class="baseline-grid">
+              <div class="baseline-item"><span class="baseline-label">Tên máy</span><div class="cmd-line"><code>hostname</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></div>
+              <div class="baseline-item"><span class="baseline-label">Tài khoản</span><div class="cmd-line"><code>whoami</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></div>
+              <div class="baseline-item"><span class="baseline-label">IPv4 / Gateway / DNS</span><div class="cmd-line"><code>ipconfig /all</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></div>
+              <div class="baseline-item"><span class="baseline-label">Trạng thái Wi-Fi</span><div class="cmd-line"><code>netsh wlan show interfaces</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></div>
+              <div class="baseline-item baseline-note"><span class="baseline-label">Và luôn ghi</span><p>Thời điểm xảy ra lỗi và nguyên văn thông báo lỗi.</p></div>
+            </div>
+          </section>
+
+          <div class="split-layout">
+            <section class="block searchable" data-searchable data-search-text="xác nhận sau khi sửa website in thử thư mục mạng ứng dụng thao tác công việc">
+              <h3 class="block-title"><span class="block-index">3</span> Xác nhận sau khi sửa</h3>
+              <p class="block-body">
+                Đừng kết thúc ticket ngay khi “đã chạy được lệnh”. Hãy kiểm tra lại chức năng người dùng thực sự cần:
+                mở website, in thử, truy cập thư mục mạng, kết nối ứng dụng hoặc thực hiện thao tác công việc.
+              </p>
+            </section>
+
+            <aside class="note-card searchable" data-searchable data-search-text="mẫu ghi chú symptom findings root cause action taken verification kết quả">
+              <p class="card-kicker">MẪU GHI CHÚ</p>
+              <ol class="chain">
+                <li>Symptom</li>
+                <li>Findings</li>
+                <li>Root cause nghi ngờ</li>
+                <li>Action taken</li>
+                <li>Verification</li>
+                <li>Kết quả</li>
+              </ol>
+            </aside>
+          </div>
+        </article>
+
+        <!-- ================== CHƯƠNG 3: PHẦN CỨNG ===================== -->
+        <article class="chapter chapter-alt section-observed" id="phan-cung" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">03</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 3</p>
+              <h2>Kiểm tra phần cứng<br /><em>và kết nối vật lý.</em></h2>
+            </div>
+            <p class="chapter-deck">Tầng gần nhất, và cũng là tầng bị bỏ qua nhiều nhất. Đèn Link tắt thì mọi lệnh phía sau đều vô nghĩa.</p>
+          </header>
+
+          <section class="scenario searchable" data-searchable data-search-text="máy tính không có mạng bằng dây rj45 switch đèn link activity device manager ethernet adapter">
+            <header class="scenario-head">
+              <span class="scenario-tag">A</span>
+              <h3>Máy tính không có mạng bằng dây</h3>
+            </header>
+            <ol class="steps">
+              <li>Kiểm tra dây mạng có cắm chắc vào cả máy và switch/ổ cắm mạng.</li>
+              <li>Quan sát đèn Link/Activity ở cổng mạng nếu có.</li>
+              <li>Thử dây hoặc cổng switch khác đã biết là tốt.</li>
+              <li>Kiểm tra adapter Ethernet trên Device Manager.</li>
+              <li>Sau đó mới dùng <code>ipconfig /all</code> và <code>netsh interface show interface</code>.</li>
+            </ol>
+          </section>
+
+          <section class="block searchable" data-searchable data-search-text="triệu chứng khả năng kiểm tra đèn link dhcp vlan gateway router dns proxy firewall">
+            <h3 class="block-title">Đọc triệu chứng thành khả năng</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th scope="col">Triệu chứng</th><th scope="col">Khả năng</th><th scope="col">Kiểm tra</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td data-label="Triệu chứng">Không có đèn link</td><td data-label="Khả năng">Dây, jack, port hoặc NIC</td><td data-label="Kiểm tra">Đổi dây/port; kiểm tra đèn</td></tr>
+                  <tr><td data-label="Triệu chứng">Có link nhưng không có IP</td><td data-label="Khả năng">DHCP/VLAN/cấu hình</td><td data-label="Kiểm tra"><code>ipconfig /all</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Có IP nhưng không ra mạng</td><td data-label="Khả năng">Gateway/Router/DNS</td><td data-label="Kiểm tra">ping Gateway → 8.8.8.8 → nslookup</td></tr>
+                  <tr><td data-label="Triệu chứng">Chỉ một ứng dụng lỗi</td><td data-label="Khả năng">Ứng dụng/proxy/firewall</td><td data-label="Kiểm tra">Kiểm tra riêng ứng dụng</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="split-layout">
+            <section class="scenario searchable" data-searchable data-search-text="máy tính dùng wifi airplane mode tín hiệu băng tần 2.4 5 ghz driver adapter">
+              <header class="scenario-head">
+                <span class="scenario-tag">B</span>
+                <h3>Máy tính dùng Wi-Fi</h3>
+              </header>
+              <ul class="bullets">
+                <li>Kiểm tra Wi-Fi có bật, Airplane Mode có tắt.</li>
+                <li>Kiểm tra chất lượng tín hiệu, băng tần 2.4/5 GHz và vị trí thiết bị.</li>
+                <li>Nếu Wi-Fi không xuất hiện, kiểm tra driver và adapter trước khi xử lý IP.</li>
+              </ul>
+            </section>
+
+            <aside class="topology-card searchable" data-searchable data-search-text="phân biệt thiết bị adapter nic access point switch router gateway lan">
+              <p class="card-kicker">PHÂN BIỆT THIẾT BỊ</p>
+              <ul class="device-list">
+                <li><span class="device-dot dot-cyan" aria-hidden="true"></span><div><strong>Adapter/NIC</strong><p>là phần giao tiếp mạng của máy.</p></div></li>
+                <li><span class="device-dot dot-blue" aria-hidden="true"></span><div><strong>Access Point</strong><p>phát Wi-Fi.</p></div></li>
+                <li><span class="device-dot dot-amber" aria-hidden="true"></span><div><strong>Switch</strong><p>kết nối các thiết bị có dây trong LAN.</p></div></li>
+                <li><span class="device-dot dot-green" aria-hidden="true"></span><div><strong>Router/Gateway</strong><p>kết nối LAN với mạng khác và thường cấp/định tuyến Internet.</p></div></li>
+              </ul>
+            </aside>
+          </div>
+        </article>
+
+        <!-- ===================== CHƯƠNG 4: WI-FI ====================== -->
+        <article class="chapter section-observed" id="wifi" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">04</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 4</p>
+              <h2>Xử lý<br /><em>Wi-Fi.</em></h2>
+            </div>
+            <p class="chapter-deck">Bốn tình huống thường gặp nhất, mỗi bước trả lời một câu hỏi khác nhau.</p>
+          </header>
+
+          <section class="scenario searchable" data-searchable data-search-text="4.1 không thấy mạng wifi ssid airplane mode netsh wlan show interfaces networks drivers device manager">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 4.1</span>
+              <h3>Không thấy mạng Wi-Fi cần kết nối</h3>
+            </header>
+            <ol class="steps">
+              <li>Mở Settings → Network &amp; Internet → Wi-Fi và xác nhận Wi-Fi đang bật.</li>
+              <li>Kiểm tra Airplane Mode.</li>
+              <li>Chạy <code>netsh wlan show interfaces</code> để xem adapter có hoạt động không.</li>
+              <li>Chạy <code>netsh wlan show networks</code> để xem máy quét thấy SSID nào.</li>
+              <li>Chạy <code>netsh wlan show drivers</code> để xác nhận driver và chuẩn Wi-Fi hỗ trợ.</li>
+              <li>Kiểm tra Device Manager → Network adapters; nếu có cảnh báo vàng, xử lý driver/thiết bị.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh wlan show interfaces</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem SSID hiện tại, trạng thái kết nối, tín hiệu, kênh, chuẩn radio và xác thực.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh wlan show networks mode=bssid</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem danh sách mạng và BSSID/kênh/tín hiệu để phân tích môi trường Wi-Fi.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh wlan show drivers</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem adapter và các chuẩn radio mà driver hỗ trợ.</p>
+              </article>
+            </div>
+            <p class="callout callout-amber"><strong>Dấu hiệu cần chú ý.</strong> Wi-Fi adapter biến mất khỏi Device Manager có thể liên quan driver, BIOS/UEFI, lỗi phần cứng hoặc adapter bị vô hiệu hóa.</p>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="4.2 đã kết nối wifi nhưng không có internet ping gateway 8.8.8.8 nslookup ipv4 subnet mask">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 4.2</span>
+              <h3>Đã kết nối Wi-Fi nhưng không có Internet</h3>
+            </header>
+            <p class="block-body">
+              Thực hiện theo thứ tự. Mỗi bước trả lời một câu hỏi khác nhau: Wi-Fi có thực sự kết nối? Máy có IP? Có nói
+              chuyện được với Gateway? Có ra Internet bằng IP? DNS có phân giải tên?
+            </p>
+            <ol class="steps">
+              <li>Kiểm tra Wi-Fi interface.</li>
+              <li>Kiểm tra IPv4, Subnet Mask, Default Gateway và DNS.</li>
+              <li>Ping Gateway.</li>
+              <li>Ping 8.8.8.8 hoặc một địa chỉ Internet phù hợp.</li>
+              <li>Dùng <code>nslookup</code> để kiểm tra DNS.</li>
+            </ol>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="4.3 wifi chập chờn tốc độ kém signal kênh access point 2.4 5 ghz driver wlanreport">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 4.3</span>
+              <h3>Wi-Fi chập chờn hoặc tốc độ kém</h3>
+            </header>
+            <ol class="steps">
+              <li>Kiểm tra Signal bằng <code>netsh wlan show interfaces</code>.</li>
+              <li>Kiểm tra kênh bằng <code>netsh wlan show networks mode=bssid</code>.</li>
+              <li>Thử di chuyển thiết bị gần Access Point hơn.</li>
+              <li>So sánh 2.4 GHz và 5 GHz nếu hệ thống cung cấp cả hai.</li>
+              <li>Cập nhật driver Wi-Fi.</li>
+              <li>Xem báo cáo WLAN để tìm các lần disconnect.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh wlan show wlanreport</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Windows tạo báo cáo lịch sử kết nối Wi-Fi để phân tích các lần kết nối/ngắt kết nối.</p>
+              </article>
+            </div>
+            <p class="callout callout-amber"><strong>Không chỉ nhìn vào “vạch sóng”.</strong> Tín hiệu mạnh không đảm bảo Internet tốt. Có thể vẫn lỗi DHCP, Gateway, DNS, tải cao, nhiễu hoặc Access Point đang gặp vấn đề.</p>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="4.4 wifi profile đã lưu netsh wlan show profiles key clear key content mật khẩu an toàn">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 4.4</span>
+              <h3>Xem Wi-Fi profile đã lưu</h3>
+            </header>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh wlan show profiles</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Liệt kê các Wi-Fi profile được lưu trên Windows.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh wlan show profile name="TEN_WIFI" key=clear</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Hiển thị chi tiết profile; với mạng gia đình đã lưu mật khẩu, Windows có thể hiện khóa trong phần Key Content khi tài khoản có quyền phù hợp.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+            </div>
+            <p class="callout callout-red"><strong>Lưu ý về an toàn.</strong> Chỉ xem hoặc quản trị profile trên máy và mạng mà bạn được phép quản lý. Việc biết SSID không tự động cho phép truy cập vào mạng.</p>
+          </section>
+        </article>
+
+        <!-- ====================== CHƯƠNG 5: LAN ======================= -->
+        <article class="chapter chapter-alt section-observed" id="lan" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">05</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 5</p>
+              <h2>Xử lý<br /><em>mạng LAN.</em></h2>
+            </div>
+            <p class="chapter-deck">Dây, switch port, VLAN và DHCP — bốn thứ quyết định máy có nhận được cấu hình hay không.</p>
+          </header>
+
+          <section class="scenario searchable" data-searchable data-search-text="5.1 cắm dây mạng nhưng không có kết nối rj45 đèn link netsh interface show interface ipconfig 169.254 apipa dhcp gateway ping">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 5.1</span>
+              <h3>Cắm dây mạng nhưng không có kết nối</h3>
+            </header>
+            <ol class="steps">
+              <li>Kiểm tra dây RJ45 và điểm cắm.</li>
+              <li>Kiểm tra đèn Link/Activity.</li>
+              <li>Thử dây/cổng khác nếu có thể.</li>
+              <li>Kiểm tra adapter bằng <code>netsh interface show interface</code>.</li>
+              <li>Chạy <code>ipconfig /all</code>.</li>
+              <li>Nếu có IPv4 169.254.x.x, nghi ngờ DHCP không cấp địa chỉ bình thường.</li>
+              <li>Kiểm tra Gateway bằng <code>ping</code>.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>netsh interface show interface</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem trạng thái Enabled/Disabled và Connected/Disconnected của các interface.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>ipconfig /all</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem IPv4, IPv6, Subnet Mask, DHCP, Gateway, DNS và Physical Address.</p>
+              </article>
+            </div>
+          </section>
+
+          <aside class="signal-card searchable" data-searchable data-search-text="169.254 apipa địa chỉ tự gán dhcp không cấp switch vlan">
+            <div class="signal-value">169.254.x.x</div>
+            <div>
+              <p class="card-kicker">DẤU HIỆU APIPA</p>
+              <p>
+                Đây thường là địa chỉ APIPA do Windows tự gán khi không nhận được cấu hình IPv4 từ DHCP. Hãy kiểm tra
+                dây, switch/VLAN, DHCP và cấu hình trước khi kết luận.
+              </p>
+            </div>
+          </aside>
+
+          <section class="scenario searchable" data-searchable data-search-text="5.2 nhận ip nhưng không truy cập tài nguyên nội bộ subnet gateway ping icmp vlan segment firewall">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 5.2</span>
+              <h3>Máy nhận IP nhưng không truy cập được tài nguyên nội bộ</h3>
+            </header>
+            <ol class="steps">
+              <li>Kiểm tra đúng Subnet và Gateway bằng <code>ipconfig /all</code>.</li>
+              <li>Ping Gateway.</li>
+              <li>Ping IP của máy chủ/tài nguyên nội bộ nếu ICMP được cho phép.</li>
+              <li>Kiểm tra VLAN/segment nếu nhiều máy cùng gặp lỗi.</li>
+              <li>Kiểm tra firewall hoặc chính sách truy cập nếu chỉ một dịch vụ không vào được.</li>
+            </ol>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="5.3 máy a không ping được máy b vlan route windows firewall icmp arp mac">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 5.3</span>
+              <h3>Máy A không ping được Máy B</h3>
+            </header>
+            <ul class="bullets">
+              <li>Xác nhận hai máy có cùng mạng/VLAN hoặc có route phù hợp.</li>
+              <li>Kiểm tra Windows Firewall và chính sách ICMP.</li>
+              <li>Kiểm tra IP/MAC bằng <code>ipconfig /all</code> và <code>arp -a</code>.</li>
+              <li>Không kết luận “mạng hỏng” chỉ từ một lần ping thất bại, vì firewall có thể chặn ICMP.</li>
+            </ul>
+          </section>
+        </article>
+
+        <!-- ================= CHƯƠNG 6: INTERNET/DNS =================== -->
+        <article class="chapter chapter-dark section-observed" id="internet" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">06</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 6</p>
+              <h2>Xử lý Internet,<br /><em>DNS và DHCP.</em></h2>
+            </div>
+            <p class="chapter-deck">Bốn tầng, bốn lệnh, bốn kết luận khác nhau. Đây là mô hình chẩn đoán dùng nhiều nhất trong nghề.</p>
+          </header>
+
+          <section class="layer-card searchable" data-searchable data-search-text="mô hình chẩn đoán 4 tầng ping 127.0.0.1 gateway 8.8.8.8 nslookup tcp/ip local internet dns">
+            <p class="card-kicker">MÔ HÌNH CHẨN ĐOÁN 4 TẦNG</p>
+            <ol class="layer-stack">
+              <li class="layer">
+                <span class="layer-num">01</span>
+                <div class="layer-body">
+                  <strong>TCP/IP local</strong>
+                  <div class="cmd-line cmd-line-inline"><code>ping 127.0.0.1</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                </div>
+                <p class="layer-fail"><span>Nếu thất bại</span> Xem xét stack/cấu hình hệ thống</p>
+              </li>
+              <li class="layer">
+                <span class="layer-num">02</span>
+                <div class="layer-body">
+                  <strong>Gateway</strong>
+                  <div class="cmd-line cmd-line-inline"><code>ping &lt;gateway&gt;</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                </div>
+                <p class="layer-fail"><span>Nếu thất bại</span> Kiểm tra LAN/router/VLAN/firewall</p>
+              </li>
+              <li class="layer">
+                <span class="layer-num">03</span>
+                <div class="layer-body">
+                  <strong>Internet IP</strong>
+                  <div class="cmd-line cmd-line-inline"><code>ping 8.8.8.8</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                </div>
+                <p class="layer-fail"><span>Nếu thất bại</span> Kiểm tra router/ISP/đường ra</p>
+              </li>
+              <li class="layer">
+                <span class="layer-num">04</span>
+                <div class="layer-body">
+                  <strong>DNS</strong>
+                  <div class="cmd-line cmd-line-inline"><code>nslookup google.com</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                </div>
+                <p class="layer-fail"><span>Nếu thất bại</span> Kiểm tra DNS server, cache, cấu hình</p>
+              </li>
+            </ol>
+          </section>
+
+          <section class="decision-card searchable" data-searchable data-search-text="cây quyết định mất internet ping gateway dns khoanh vùng">
+            <div class="decision-head">
+              <p class="card-kicker">ĐI THEO MÔ HÌNH 4 TẦNG</p>
+              <span class="decision-counter" id="decision-counter">TẦNG 1 / 4</span>
+            </div>
+            <div class="decision-stage" id="decision-stage" aria-live="polite">
+              <p class="decision-overline" id="decision-overline">BẮT ĐẦU</p>
+              <h3 id="decision-question">Máy không vào được Internet. Chạy ping 127.0.0.1 — có trả lời không?</h3>
+              <p id="decision-detail">Bước này chỉ trả lời một câu hỏi: stack TCP/IP trên chính máy này có hoạt động không.</p>
+            </div>
+            <div class="decision-actions" id="decision-actions">
+              <button type="button" class="decision-button" data-decision="yes">Có trả lời <span aria-hidden="true">→</span></button>
+              <button type="button" class="decision-button" data-decision="no">Không trả lời <span aria-hidden="true">→</span></button>
+            </div>
+            <button class="decision-reset" type="button" id="decision-reset" hidden>Chẩn đoán lại từ đầu</button>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="6.1 ping ip được nhưng tên miền không được nslookup dns server flushdns displaydns cache">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 6.1</span>
+              <h3>Ping IP được nhưng tên miền không được</h3>
+            </header>
+            <ol class="steps">
+              <li>Chạy <code>nslookup google.com</code>.</li>
+              <li>Xem DNS server đang trả lời là ai.</li>
+              <li>Thử truy vấn một DNS server phù hợp được tổ chức cho phép.</li>
+              <li>Xóa DNS cache bằng <code>ipconfig /flushdns</code> nếu nghi cache cũ.</li>
+              <li>Kiểm tra lại <code>nslookup</code> và ứng dụng.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>nslookup google.com</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kiểm tra việc phân giải tên miền.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>ipconfig /displaydns</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem DNS cache hiện tại.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>ipconfig /flushdns</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xóa DNS cache cục bộ.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="6.2 không nhận được ip từ dhcp release renew vlan switch port policy">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 6.2</span>
+              <h3>Không nhận được IP từ DHCP</h3>
+            </header>
+            <ol class="steps">
+              <li>Chạy <code>ipconfig /all</code> để xác định DHCP Enabled và IPv4 hiện tại.</li>
+              <li>Kiểm tra cable/Wi-Fi và kết nối đến mạng nội bộ.</li>
+              <li>Chạy <code>ipconfig /release</code> rồi <code>ipconfig /renew</code>.</li>
+              <li>Nếu vẫn không có IPv4 phù hợp, kiểm tra DHCP server, VLAN, switch port hoặc policy.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>ipconfig /release</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Giải phóng địa chỉ IPv4 hiện tại.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>ipconfig /renew</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Yêu cầu DHCP cấp/cấp lại cấu hình IPv4.</p>
+              </article>
+            </div>
+            <p class="callout callout-cyan"><strong>Không nhầm DHCP với DNS.</strong> DHCP giúp thiết bị nhận cấu hình mạng như IP, subnet, gateway, DNS. DNS giúp biến tên miền thành địa chỉ IP. Hai thành phần khác nhau.</p>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="6.3 truy cập chậm đường đi bất thường tracert pathping hop mất gói độ trễ">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 6.3</span>
+              <h3>Truy cập chậm hoặc đường đi bất thường</h3>
+            </header>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>tracert google.com</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem các hop trên đường đi từ máy đến đích.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>pathping google.com</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kết hợp traceroute và đo lường mất gói/độ trễ theo thời gian.</p>
+              </article>
+            </div>
+            <p class="callout callout-amber"><strong>Cẩn thận khi diễn giải traceroute.</strong> Một hop không trả lời ICMP không nhất thiết là lỗi. Thiết bị trung gian có thể chặn hoặc giới hạn phản hồi.</p>
+          </section>
+        </article>
+
+        <!-- ==================== CHƯƠNG 7: MÁY IN ====================== -->
+        <article class="chapter section-observed" id="may-in" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">07</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 7</p>
+              <h2>Xử lý<br /><em>máy in.</em></h2>
+            </div>
+            <p class="chapter-deck">Một máy không in được và cả phòng không in được là hai bài toán khác nhau.</p>
+          </header>
+
+          <section class="scenario searchable" data-searchable data-search-text="7.1 máy in offline không in được giấy mực cáp usb control printers spooler sc query job kẹt">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 7.1</span>
+              <h3>Máy in Offline hoặc không in được</h3>
+            </header>
+            <ol class="steps">
+              <li>Kiểm tra nguồn máy in, giấy, mực và đèn cảnh báo trên máy.</li>
+              <li>Kiểm tra cáp USB hoặc cáp mạng.</li>
+              <li>Mở <code>control printers</code> để xác nhận máy in có tồn tại trên Windows.</li>
+              <li>Nếu máy in mạng, ping địa chỉ IP của máy in.</li>
+              <li>Kiểm tra Print Spooler bằng <code>sc query spooler</code>.</li>
+              <li>Xóa job bị kẹt, sau đó thử in trang kiểm tra.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>control printers</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Mở danh sách máy in trong Windows.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>sc query spooler</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kiểm tra trạng thái dịch vụ Print Spooler.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>net stop spooler</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Dừng Print Spooler để xử lý queue/service.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>net start spooler</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Khởi động lại Print Spooler.</p>
+              </article>
+            </div>
+          </section>
+
+          <div class="split-layout">
+            <section class="scenario searchable" data-searchable data-search-text="7.2 máy in mạng không ping được ip configuration page switch port dhcp static vlan queue driver">
+              <header class="scenario-head">
+                <span class="scenario-tag">TÌNH HUỐNG 7.2</span>
+                <h3>Máy in mạng không ping được</h3>
+              </header>
+              <ol class="steps">
+                <li>Đọc IP máy in từ màn hình/configuration page hoặc hệ thống quản trị.</li>
+                <li>Ping IP máy in.</li>
+                <li>Nếu không ping được, kiểm tra nguồn, cable, switch port, DHCP/Static IP và VLAN.</li>
+                <li>Nếu ping được nhưng vẫn không in, kiểm tra queue, driver, port cấu hình của Windows và Print Spooler.</li>
+              </ol>
+            </section>
+
+            <aside class="note-card searchable" data-searchable data-search-text="một máy không in được nhiều máy printer server switch vlan hạ tầng dùng chung">
+              <p class="card-kicker">KHOANH VÙNG THEO SỐ LƯỢNG</p>
+              <h3>Một máy hay nhiều máy?</h3>
+              <p>
+                Một máy không in được có thể lỗi ở client, driver hoặc queue. Nhiều máy cùng không in được thường làm
+                tăng khả năng lỗi ở printer, server in, switch/VLAN hoặc hạ tầng dùng chung.
+              </p>
+            </aside>
+          </div>
+        </article>
+
+        <!-- =================== CHƯƠNG 8: WINDOWS ====================== -->
+        <article class="chapter chapter-alt section-observed" id="windows" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">08</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 8</p>
+              <h2>Xử lý Windows, process,<br /><em>service và driver.</em></h2>
+            </div>
+            <p class="chapter-deck">Ghi nhận trạng thái trước khi dừng bất cứ thứ gì — một service có thể là phụ thuộc của nhiều ứng dụng.</p>
+          </header>
+
+          <section class="scenario searchable" data-searchable data-search-text="8.1 ứng dụng bị treo tasklist findstr taskkill pid im chrome process">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 8.1</span>
+              <h3>Ứng dụng bị treo</h3>
+            </header>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>tasklist</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Liệt kê các process đang chạy.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>tasklist | findstr chrome</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Tìm process theo tên.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>taskkill /PID 1234 /F</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kết thúc process theo PID; dùng thận trọng.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>taskkill /IM chrome.exe /F</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kết thúc process theo tên; dùng thận trọng.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="8.2 dịch vụ windows không chạy sc query net start net stop service">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 8.2</span>
+              <h3>Dịch vụ Windows không chạy</h3>
+            </header>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>sc query spooler</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Mẫu kiểm tra một service.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>net start "Service Name"</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Khởi động service nếu tài khoản có quyền.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>net stop "Service Name"</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Dừng service nếu cần và nếu được phép.</p>
+              </article>
+            </div>
+            <p class="callout callout-amber"><strong>Nguyên tắc service.</strong> Trước khi restart service, ghi nhận trạng thái hiện tại và xác nhận ảnh hưởng. Một service có thể là phụ thuộc của nhiều ứng dụng.</p>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="8.3 driver mạng thiết bị lỗi driverquery devmgmt.msc device manager rollback cập nhật">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 8.3</span>
+              <h3>Driver mạng hoặc thiết bị lỗi</h3>
+            </header>
+            <ol class="steps">
+              <li>Mở Device Manager và tìm adapter/thiết bị lỗi.</li>
+              <li>Ghi nhận tên model và trạng thái.</li>
+              <li>Kiểm tra driver phù hợp từ nguồn quản trị tin cậy.</li>
+              <li>Cập nhật/rollback theo chính sách hỗ trợ.</li>
+              <li>Khởi động lại nếu cần và xác nhận thiết bị trở lại bình thường.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>driverquery</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Liệt kê driver đang có trong hệ thống.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>driverquery /v</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem thông tin chi tiết hơn về driver.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>devmgmt.msc</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Mở Device Manager để kiểm tra thiết bị, driver và mã lỗi.</p>
+              </article>
+            </div>
+          </section>
+        </article>
+
+        <!-- ==================== CHƯƠNG 9: Ổ ĐĨA ======================= -->
+        <article class="chapter section-observed" id="o-dia" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">09</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 9</p>
+              <h2>Xử lý Windows<br /><em>và ổ đĩa.</em></h2>
+            </div>
+            <p class="chapter-deck">Nhóm lệnh nặng tay nhất trong sổ tay. Đọc cảnh báo dữ liệu trước khi chạy.</p>
+          </header>
+
+          <section class="scenario searchable" data-searchable data-search-text="9.1 file hệ thống windows bị hỏng sfc scannow dism online cleanup image restorehealth component store administrator">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 9.1</span>
+              <h3>Nghi ngờ file hệ thống Windows bị hỏng</h3>
+            </header>
+            <ol class="steps">
+              <li>Mở CMD/Terminal bằng quyền Administrator.</li>
+              <li>Chạy DISM khi nghi component store có vấn đề.</li>
+              <li>Sau đó chạy <code>sfc /scannow</code>.</li>
+              <li>Khởi động lại nếu được yêu cầu.</li>
+              <li>Kiểm tra lại triệu chứng ban đầu.</li>
+            </ol>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>DISM /Online /Cleanup-Image /RestoreHealth</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Sửa kho thành phần Windows; có thể cần quyền quản trị và thời gian xử lý.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>sfc /scannow</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kiểm tra và cố gắng sửa các file hệ thống được bảo vệ.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="scenario searchable" data-searchable data-search-text="9.2 ổ đĩa lỗi logic chkdsk file system sửa lỗi lên lịch khởi động lại">
+            <header class="scenario-head">
+              <span class="scenario-tag">TÌNH HUỐNG 9.2</span>
+              <h3>Ổ đĩa có dấu hiệu lỗi logic</h3>
+            </header>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>chkdsk</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Kiểm tra trạng thái file system mà chưa yêu cầu sửa lỗi.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>chkdsk C: /f</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Sửa lỗi file system; có thể yêu cầu lên lịch khi khởi động lại.</p>
+                <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+              </article>
+            </div>
+            <p class="callout callout-red"><strong>Cảnh báo dữ liệu.</strong> Không dùng các thao tác sửa đĩa một cách máy móc trên máy có dữ liệu quan trọng. Với ổ có dấu hiệu vật lý hỏng, ưu tiên bảo toàn dữ liệu và quy trình phục hồi của tổ chức.</p>
+          </section>
+        </article>
+
+        <!-- =================== CHƯƠNG 10: ĐIỀU TRA ==================== -->
+        <article class="chapter chapter-alt section-observed" id="dieu-tra" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">10</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 10</p>
+              <h2>Điều tra<br /><em>mạng cơ bản.</em></h2>
+            </div>
+            <p class="chapter-deck">Ba lệnh, ba câu hỏi khác nhau. Biết lệnh nào trả lời câu hỏi nào là đủ để không mò.</p>
+          </header>
+
+          <div class="investigate-grid">
+            <section class="cmd-group searchable" data-searchable data-search-text="arp cache ip mac ánh xạ">
+              <p class="card-kicker">ARP</p>
+              <article class="cmd">
+                <div class="cmd-line"><code>arp -a</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem ánh xạ IP ↔ MAC mà máy đang lưu trong ARP cache.</p>
+              </article>
+            </section>
+            <section class="cmd-group searchable" data-searchable data-search-text="routing route print routing table interface gateway">
+              <p class="card-kicker">ROUTING</p>
+              <article class="cmd">
+                <div class="cmd-line"><code>route print</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem routing table, interface và gateway mà Windows dùng.</p>
+              </article>
+            </section>
+            <section class="cmd-group searchable" data-searchable data-search-text="kết nối port netstat ano pid trạng thái">
+              <p class="card-kicker">KẾT NỐI VÀ PORT</p>
+              <article class="cmd">
+                <div class="cmd-line"><code>netstat</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem các kết nối mạng cơ bản.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>netstat -ano</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Xem kết nối, port, trạng thái và PID tương ứng.</p>
+              </article>
+            </section>
+          </div>
+
+          <p class="callout callout-cyan searchable" data-searchable data-search-text="cách đọc nhanh arp route netstat câu hỏi">
+            <strong>Cách đọc nhanh.</strong> <code>arp -a</code> trả lời “máy biết MAC nào?”, <code>route print</code> trả lời
+            “gói sẽ đi theo route nào?”, <code>netstat -ano</code> trả lời “ứng dụng nào đang giữ kết nối/port?”.
+          </p>
+
+          <section class="block searchable" data-searchable data-search-text="thông tin máy hostname whoami systeminfo msinfo32 system information">
+            <h3 class="block-title">Thông tin máy</h3>
+            <div class="cmd-grid">
+              <article class="cmd">
+                <div class="cmd-line"><code>hostname</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Tên máy Windows.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>whoami</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Tài khoản hiện tại.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>systeminfo</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Thông tin hệ thống, OS, phần cứng và cấu hình cơ bản.</p>
+              </article>
+              <article class="cmd">
+                <div class="cmd-line"><code>msinfo32</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                <p>Mở System Information để xem thông tin hệ thống chi tiết.</p>
+              </article>
+            </div>
+          </section>
+        </article>
+
+        <!-- ==================== CHƯƠNG 11: LỆNH ======================= -->
+        <article class="chapter section-observed" id="lenh" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">11</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 11</p>
+              <h2>Trang lệnh<br /><em>CMD tham khảo.</em></h2>
+            </div>
+            <p class="chapter-deck">Trang này gom các lệnh đã dùng trong sổ tay. Hãy nhớ mục đích của lệnh, không chỉ nhớ cú pháp.</p>
+          </header>
+
+          <section class="block searchable" data-searchable data-search-text="ipconfig all release renew flushdns displaydns ping tracert pathping nslookup arp route print netstat ano bảng lệnh mạng">
+            <h3 class="block-title">Lệnh mạng</h3>
+            <div class="table-wrap">
+              <table class="data-table table-cmd">
+                <thead><tr><th scope="col">Lệnh</th><th scope="col">Công dụng</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Lệnh"><code>ipconfig /all</code></td><td data-label="Công dụng">Xem IP, subnet, DHCP, Gateway, DNS, MAC.</td></tr>
+                  <tr><td data-label="Lệnh"><code>ipconfig</code></td><td data-label="Công dụng">Tóm tắt cấu hình IP.</td></tr>
+                  <tr><td data-label="Lệnh"><code>ipconfig /release</code></td><td data-label="Công dụng">Giải phóng IPv4 hiện tại.</td></tr>
+                  <tr><td data-label="Lệnh"><code>ipconfig /renew</code></td><td data-label="Công dụng">Xin lại IPv4 từ DHCP.</td></tr>
+                  <tr><td data-label="Lệnh"><code>ipconfig /flushdns</code></td><td data-label="Công dụng">Xóa DNS cache.</td></tr>
+                  <tr><td data-label="Lệnh"><code>ipconfig /displaydns</code></td><td data-label="Công dụng">Xem DNS cache.</td></tr>
+                  <tr><td data-label="Lệnh"><code>ping &lt;đích&gt;</code></td><td data-label="Công dụng">Kiểm tra khả năng liên lạc theo ICMP.</td></tr>
+                  <tr><td data-label="Lệnh"><code>tracert &lt;đích&gt;</code></td><td data-label="Công dụng">Xem các hop trên đường đi.</td></tr>
+                  <tr><td data-label="Lệnh"><code>pathping &lt;đích&gt;</code></td><td data-label="Công dụng">Đo đường đi và mất gói/độ trễ.</td></tr>
+                  <tr><td data-label="Lệnh"><code>nslookup &lt;tên&gt;</code></td><td data-label="Công dụng">Kiểm tra phân giải DNS.</td></tr>
+                  <tr><td data-label="Lệnh"><code>arp -a</code></td><td data-label="Công dụng">Xem ARP cache.</td></tr>
+                  <tr><td data-label="Lệnh"><code>route print</code></td><td data-label="Công dụng">Xem routing table.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netstat -ano</code></td><td data-label="Công dụng">Xem kết nối/port và PID.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="block searchable" data-searchable data-search-text="netsh wlan show interfaces networks bssid drivers profiles wlanreport winsock reset int ip reset hostname whoami systeminfo driverquery tasklist taskkill sc query net start stop chkdsk sfc dism control printers printmanagement devmgmt eventvwr msinfo32 bảng lệnh wifi hệ thống">
+            <h3 class="block-title">Lệnh Wi-Fi, adapter và hệ thống</h3>
+            <div class="table-wrap">
+              <table class="data-table table-cmd">
+                <thead><tr><th scope="col">Lệnh</th><th scope="col">Công dụng</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show interfaces</code></td><td data-label="Công dụng">Trạng thái Wi-Fi hiện tại, SSID, tín hiệu, kênh, xác thực.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show networks</code></td><td data-label="Công dụng">Danh sách SSID nhìn thấy.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show networks mode=bssid</code></td><td data-label="Công dụng">SSID + BSSID + tín hiệu + kênh.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show drivers</code></td><td data-label="Công dụng">Driver và chuẩn Wi-Fi hỗ trợ.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show profiles</code></td><td data-label="Công dụng">Wi-Fi profile đã lưu.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show profile name="TEN_WIFI" key=clear</code></td><td data-label="Công dụng">Chi tiết profile; có thể hiển thị khóa đã lưu khi được phép.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh wlan show wlanreport</code></td><td data-label="Công dụng">Tạo báo cáo lịch sử Wi-Fi.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh interface show interface</code></td><td data-label="Công dụng">Trạng thái network interface.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh winsock reset</code></td><td data-label="Công dụng">Reset Winsock; thường cần khởi động lại.</td></tr>
+                  <tr><td data-label="Lệnh"><code>netsh int ip reset</code></td><td data-label="Công dụng">Reset TCP/IP; thường cần khởi động lại.</td></tr>
+                  <tr><td data-label="Lệnh"><code>hostname</code></td><td data-label="Công dụng">Tên máy.</td></tr>
+                  <tr><td data-label="Lệnh"><code>whoami</code></td><td data-label="Công dụng">User hiện tại.</td></tr>
+                  <tr><td data-label="Lệnh"><code>systeminfo</code></td><td data-label="Công dụng">Thông tin hệ thống.</td></tr>
+                  <tr><td data-label="Lệnh"><code>driverquery /v</code></td><td data-label="Công dụng">Thông tin driver chi tiết.</td></tr>
+                  <tr><td data-label="Lệnh"><code>tasklist</code></td><td data-label="Công dụng">Danh sách process.</td></tr>
+                  <tr><td data-label="Lệnh"><code>taskkill /PID &lt;PID&gt; /F</code></td><td data-label="Công dụng">Kết thúc process theo PID.</td></tr>
+                  <tr><td data-label="Lệnh"><code>sc query &lt;service&gt;</code></td><td data-label="Công dụng">Kiểm tra service.</td></tr>
+                  <tr><td data-label="Lệnh"><code>net start "Service Name"</code></td><td data-label="Công dụng">Khởi động service.</td></tr>
+                  <tr><td data-label="Lệnh"><code>net stop "Service Name"</code></td><td data-label="Công dụng">Dừng service.</td></tr>
+                  <tr><td data-label="Lệnh"><code>chkdsk</code></td><td data-label="Công dụng">Kiểm tra file system.</td></tr>
+                  <tr><td data-label="Lệnh"><code>chkdsk C: /f</code></td><td data-label="Công dụng">Sửa lỗi file system.</td></tr>
+                  <tr><td data-label="Lệnh"><code>sfc /scannow</code></td><td data-label="Công dụng">Kiểm tra/sửa file hệ thống.</td></tr>
+                  <tr><td data-label="Lệnh"><code>DISM /Online /Cleanup-Image /RestoreHealth</code></td><td data-label="Công dụng">Sửa Windows component store.</td></tr>
+                  <tr><td data-label="Lệnh"><code>control printers</code></td><td data-label="Công dụng">Mở danh sách máy in.</td></tr>
+                  <tr><td data-label="Lệnh"><code>printmanagement.msc</code></td><td data-label="Công dụng">Mở Print Management nếu phiên bản Windows hỗ trợ.</td></tr>
+                  <tr><td data-label="Lệnh"><code>devmgmt.msc</code></td><td data-label="Công dụng">Mở Device Manager.</td></tr>
+                  <tr><td data-label="Lệnh"><code>eventvwr.msc</code></td><td data-label="Công dụng">Mở Event Viewer.</td></tr>
+                  <tr><td data-label="Lệnh"><code>msinfo32</code></td><td data-label="Công dụng">Mở System Information.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="combo-card searchable" data-searchable data-search-text="combo chẩn đoán nhanh mất internet wifi máy in windows spooler dism sfc">
+            <div class="combo-head">
+              <div><p class="card-kicker">CÁC “COMBO” CHẨN ĐOÁN NHANH</p><h3>Bốn chuỗi lệnh chạy theo thứ tự</h3></div>
+              <div class="combo-tabs" role="tablist" aria-label="Chọn combo">
+                <button type="button" role="tab" id="tab-combo-a" aria-selected="true" aria-controls="panel-combo-a" data-combo-tab="a">Combo A</button>
+                <button type="button" role="tab" id="tab-combo-b" aria-selected="false" aria-controls="panel-combo-b" data-combo-tab="b">Combo B</button>
+                <button type="button" role="tab" id="tab-combo-c" aria-selected="false" aria-controls="panel-combo-c" data-combo-tab="c">Combo C</button>
+                <button type="button" role="tab" id="tab-combo-d" aria-selected="false" aria-controls="panel-combo-d" data-combo-tab="d">Combo D</button>
+              </div>
+            </div>
+
+            <section id="panel-combo-a" role="tabpanel" aria-labelledby="tab-combo-a" data-combo-panel="a">
+              <h4 class="combo-title">Combo A — Mất Internet</h4>
+              <ol class="combo-steps">
+                <li><div class="cmd-line"><code>ipconfig /all</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div><p>Bắt đầu bằng baseline IP.</p></li>
+                <li><div class="cmd-line"><code>ping &lt;gateway&gt;</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div><p>Kiểm tra LAN tới gateway.</p></li>
+                <li><div class="cmd-line"><code>ping 8.8.8.8</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div><p>Kiểm tra đường ra Internet bằng IP.</p></li>
+                <li><div class="cmd-line"><code>nslookup google.com</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div><p>Kiểm tra DNS.</p></li>
+              </ol>
+            </section>
+
+            <section id="panel-combo-b" role="tabpanel" aria-labelledby="tab-combo-b" data-combo-panel="b" hidden>
+              <h4 class="combo-title">Combo B — Wi-Fi có vấn đề</h4>
+              <ol class="combo-steps">
+                <li><div class="cmd-line"><code>netsh wlan show interfaces</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></li>
+                <li><div class="cmd-line"><code>netsh wlan show drivers</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></li>
+                <li><div class="cmd-line"><code>netsh wlan show wlanreport</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></li>
+              </ol>
+            </section>
+
+            <section id="panel-combo-c" role="tabpanel" aria-labelledby="tab-combo-c" data-combo-panel="c" hidden>
+              <h4 class="combo-title">Combo C — Máy in không in</h4>
+              <ol class="combo-steps">
+                <li><div class="cmd-line"><code>ping &lt;IP-may-in&gt;</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></li>
+                <li><div class="cmd-line"><code>sc query spooler</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div></li>
+                <li>
+                  <div class="cmd-line"><code>net stop spooler &amp;&amp; net start spooler</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                  <p>Restart nhanh Print Spooler; dùng khi phù hợp.</p>
+                  <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+                </li>
+              </ol>
+            </section>
+
+            <section id="panel-combo-d" role="tabpanel" aria-labelledby="tab-combo-d" data-combo-panel="d" hidden>
+              <h4 class="combo-title">Combo D — Windows nghi lỗi hệ thống</h4>
+              <ol class="combo-steps">
+                <li>
+                  <div class="cmd-line"><code>DISM /Online /Cleanup-Image /RestoreHealth</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                  <p>Sau đó chạy SFC.</p>
+                  <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+                </li>
+                <li>
+                  <div class="cmd-line"><code>sfc /scannow</code><button type="button" class="copy-button">Sao chép <span aria-hidden="true">⧉</span></button></div>
+                  <p>Xác nhận/sửa file hệ thống.</p>
+                  <p class="cmd-warn">⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.</p>
+                </li>
+              </ol>
+            </section>
+          </section>
+        </article>
+
+        <!-- ================== CHƯƠNG 12: CHECKLIST ==================== -->
+        <article class="chapter chapter-dark section-observed" id="checklist" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">12</div>
+            <div>
+              <p class="eyebrow">CHƯƠNG 12</p>
+              <h2>Checklist<br /><em>IT Helpdesk.</em></h2>
+            </div>
+            <p class="chapter-deck">Mười ba mục cho 60 giây đầu tiên của một sự cố mạng. Tick từng mục ngay trên trang này.</p>
+          </header>
+
+          <section class="checklist-card searchable" data-searchable data-search-text="checklist 60 giây sự cố mạng triệu chứng thay đổi gần đây nguồn dây đèn báo wifi airplane ipconfig baseline ping 127.0.0.1 gateway 8.8.8.8 nslookup driver device ticket">
+            <div class="checklist-head">
+              <div>
+                <p class="card-kicker">CHECKLIST 60 GIÂY KHI NHẬN MỘT SỰ CỐ MẠNG</p>
+                <h3>Đi hết 13 mục trước khi kết luận</h3>
+              </div>
+              <div class="checklist-meter">
+                <span id="checklist-count">0 / 13</span>
+                <div class="meter-track" role="presentation"><span id="checklist-bar"></span></div>
+              </div>
+            </div>
+
+            <ul class="checklist" id="checklist">
+              <li><label><input type="checkbox" /><span>Xác nhận triệu chứng bằng chính thao tác người dùng báo lỗi.</span></label></li>
+              <li><label><input type="checkbox" /><span>Hỏi lỗi bắt đầu khi nào và có thay đổi gì gần đây.</span></label></li>
+              <li><label><input type="checkbox" /><span>Kiểm tra nguồn, dây, đèn báo, Wi-Fi/Airplane Mode.</span></label></li>
+              <li><label><input type="checkbox" /><span>Xác định chỉ một máy hay nhiều máy cùng lỗi.</span></label></li>
+              <li><label><input type="checkbox" /><span>Chạy <code>ipconfig /all</code> để chụp baseline.</span></label></li>
+              <li><label><input type="checkbox" /><span>Ping <code>127.0.0.1</code> khi cần kiểm tra TCP/IP local.</span></label></li>
+              <li><label><input type="checkbox" /><span>Ping Gateway để kiểm tra LAN.</span></label></li>
+              <li><label><input type="checkbox" /><span>Ping <code>8.8.8.8</code> hoặc đích Internet phù hợp.</span></label></li>
+              <li><label><input type="checkbox" /><span>Dùng <code>nslookup</code> khi nghi DNS.</span></label></li>
+              <li><label><input type="checkbox" /><span>Kiểm tra driver/device nếu adapter biến mất hoặc có cảnh báo.</span></label></li>
+              <li><label><input type="checkbox" /><span>Khắc phục từng thay đổi một và ghi nhận.</span></label></li>
+              <li><label><input type="checkbox" /><span>Xác nhận lại thao tác nghiệp vụ của người dùng.</span></label></li>
+              <li><label><input type="checkbox" /><span>Ghi lại nguyên nhân, hành động và kết quả vào ticket.</span></label></li>
+            </ul>
+            <button class="checklist-reset" type="button" id="checklist-reset">Bỏ chọn tất cả</button>
+          </section>
+
+          <div class="split-layout">
+            <aside class="note-card dark-note searchable" data-searchable data-search-text="mẹo nghề helpdesk giỏi khoanh vùng nhanh thay đổi có kiểm soát bằng chứng">
+              <p class="card-kicker">MẸO NGHỀ</p>
+              <h3>Không phải người biết nhiều lệnh nhất.</h3>
+              <p>
+                Một Helpdesk giỏi không phải người biết nhiều lệnh nhất. Đó là người khoanh vùng nhanh, thay đổi có
+                kiểm soát và để lại bằng chứng đủ rõ cho người xử lý ở tầng tiếp theo.
+              </p>
+            </aside>
+
+            <section class="escalation-card searchable" data-searchable data-search-text="khi nào cần escalation nhiều thiết bị switch router vlan dhcp dns phần cứng bảo mật tài khoản xâm nhập quản trị thay đổi">
+              <p class="card-kicker">KHI NÀO CẦN ESCALATION?</p>
+              <ul class="check-list">
+                <li><span>01</span> Nhiều thiết bị cùng lỗi và đã xác định phạm vi ở switch/router/VLAN/DHCP/DNS.</li>
+                <li><span>02</span> Lỗi phần cứng vật lý vượt quyền thay thế/sửa của Helpdesk.</li>
+                <li><span>03</span> Có dấu hiệu sự cố bảo mật, tài khoản bị xâm nhập hoặc thiết bị bất thường.</li>
+                <li><span>04</span> Cần thay đổi cấu hình hạ tầng sản xuất theo quy trình quản trị thay đổi.</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <!-- ===================== PHỤ LỤC: QUICK REF =================== -->
+        <article class="chapter section-observed" id="quick-ref" data-section tabindex="-1">
+          <header class="chapter-head">
+            <div class="chapter-number">PL</div>
+            <div>
+              <p class="eyebrow">PHỤ LỤC</p>
+              <h2>Quick<br /><em>Reference.</em></h2>
+            </div>
+            <p class="chapter-deck">Từ triệu chứng người dùng nói ra, đến bước đầu tiên và lệnh nên gõ.</p>
+          </header>
+
+          <section class="block searchable" data-searchable data-search-text="quick reference triệu chứng bước đầu tiên lệnh gợi ý ssid internet 169.254 tên miền lan máy in app treo driver windows đường đi">
+            <div class="table-wrap">
+              <table class="data-table table-quick">
+                <thead><tr><th scope="col">Triệu chứng</th><th scope="col">Bước đầu tiên</th><th scope="col">Lệnh gợi ý</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Triệu chứng">Wi-Fi không thấy SSID</td><td data-label="Bước đầu tiên">Kiểm tra adapter + Wi-Fi</td><td data-label="Lệnh gợi ý"><code>netsh wlan show interfaces</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Wi-Fi connected, no Internet</td><td data-label="Bước đầu tiên">Kiểm tra IP/Gateway</td><td data-label="Lệnh gợi ý"><code>ipconfig /all</code> + <code>ping</code></td></tr>
+                  <tr><td data-label="Triệu chứng">IP 169.254.x.x</td><td data-label="Bước đầu tiên">Kiểm tra DHCP</td><td data-label="Lệnh gợi ý"><code>ipconfig /renew</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Tên miền không mở</td><td data-label="Bước đầu tiên">Kiểm tra DNS</td><td data-label="Lệnh gợi ý"><code>nslookup</code> + <code>ipconfig /flushdns</code></td></tr>
+                  <tr><td data-label="Triệu chứng">LAN chập chờn</td><td data-label="Bước đầu tiên">Kiểm tra dây/port/link</td><td data-label="Lệnh gợi ý"><code>netsh interface show interface</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Máy in không in</td><td data-label="Bước đầu tiên">Kiểm tra Printer + Spooler</td><td data-label="Lệnh gợi ý"><code>sc query spooler</code></td></tr>
+                  <tr><td data-label="Triệu chứng">App bị treo</td><td data-label="Bước đầu tiên">Kiểm tra process</td><td data-label="Lệnh gợi ý"><code>tasklist</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Driver lỗi</td><td data-label="Bước đầu tiên">Device Manager</td><td data-label="Lệnh gợi ý"><code>devmgmt.msc</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Windows nghi hỏng file</td><td data-label="Bước đầu tiên">Sửa component + system files</td><td data-label="Lệnh gợi ý"><code>DISM</code> + <code>sfc /scannow</code></td></tr>
+                  <tr><td data-label="Triệu chứng">Kiểm tra đường đi</td><td data-label="Bước đầu tiên">Phân tích route/hop</td><td data-label="Lệnh gợi ý"><code>tracert</code> + <code>pathping</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </article>
+
+        <!-- ==================== XƯƠNG SỐNG CHẨN ĐOÁN ================== -->
+        <section class="spine-band" aria-labelledby="spine-title">
+          <div class="section-label">
+            <span>GHI NHỚ</span>
+            <h2 id="spine-title">Xương sống của quy trình chẩn đoán mạng</h2>
+          </div>
+          <ol class="spine">
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>Vật lý</strong></li>
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>Adapter</strong></li>
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>IP</strong></li>
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>Gateway</strong></li>
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>Internet</strong></li>
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>DNS</strong></li>
+            <li><span class="spine-dot" aria-hidden="true"></span><strong>Ứng dụng</strong></li>
+          </ol>
+          <p class="spine-foot">Đi đúng thứ tự này, mỗi bước loại trừ được một tầng — và bạn luôn biết mình đang đứng ở đâu.</p>
+        </section>
+
+        <section class="closing-callout">
+          <p class="eyebrow">IT HELPDESK · TROUBLESHOOTING HANDBOOK</p>
+          <h2>Xác định lỗi<br />trước khi reset.</h2>
+          <p>
+            Nội dung trong bản web này giữ nguyên theo sổ tay gốc “Xử lý sự cố căn bản cho IT Helpdesk”, phiên bản 1.0.
+          </p>
+          <div class="closing-actions">
+            <a class="button button-primary" href="#bat-dau">Về đầu sổ tay <span aria-hidden="true">↑</span></a>
+            <a class="button button-ghost" href="So_Tay_IT_Helpdesk_Can_Ban.pdf" target="_blank" rel="noopener">Bản PDF gốc <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="So_Tay_IT_Helpdesk_Ban_Web.pdf" target="_blank" rel="noopener">Bản web để in <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button class="back-to-top" type="button" aria-label="Về đầu trang">↑</button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

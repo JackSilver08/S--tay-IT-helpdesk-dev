@@ -1,0 +1,509 @@
+
+========== TRANG 1 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+SỔ TAY
+XỬ LÝ SỰ CỐ CĂN BẢN
+CHO IT HELPDESK
+Hardware • Windows • LAN • Wi-Fi • Internet • DNS • DHCP • Máy in • CMD
+Mục tiêu tài liệu
+Từ triệu chứng kiểm tra vật lý kiểm tra Windows/CMD khoanh vùng nguyên nhân xử lý → → → →
+→ xác nhận sau sửa.
+Phiên bản 1.0 | Tài liệu thực hành
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 1
+
+========== TRANG 2 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+▦ CHƯƠNG 0. MỤC LỤC
+01 Tư duy troubleshooting
+02 Quy trình tiếp nhận và xử lý ticket
+03 Kiểm tra phần cứng và kết nối vật lý
+04 Xử lý Wi-Fi
+05 Xử lý mạng LAN
+06 Xử lý Internet, DNS và DHCP
+07 Xử lý máy in
+08 Xử lý Windows, process, service và driver
+09 Xử lý Windows và ổ đĩa
+10 Điều tra mạng cơ bản
+11 Trang lệnh CMD tham khảo
+12 Checklist IT Helpdesk
+PL Quick Reference
+Nguyên tắc vàng
+Luôn xác định lỗi trước khi reset. Một lệnh sửa tốt là lệnh trả lời được một câu hỏi chẩn đoán cụ
+thể.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 2
+
+========== TRANG 3 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+◈ CHƯƠNG 1. TƯ DUY TROUBLESHOOTING
+IT Helpdesk không bắt đầu bằng câu hỏi “chạy lệnh nào?”. Hãy bắt đầu bằng “triệu chứng là gì, phạm
+vi ảnh hưởng ở đâu và tầng nào đang lỗi?”.
+Nguyên tắc kiểm tra từ gần đến xa
+1. Kiểm tra nguồn, dây, đèn báo và kết nối vật lý.
+2. Kiểm tra adapter hoặc thiết bị ngoại vi trên Windows.
+3. Kiểm tra cấu hình IP, Gateway, DNS và trạng thái kết nối.
+4. Kiểm tra đường đi ra ngoài mạng nội bộ.
+5. Khắc phục với thay đổi nhỏ nhất, sau đó xác nhận lại bằng cùng triệu chứng ban đầu.
+Không sửa mò
+Không nên chạy hàng loạt lệnh reset chỉ vì máy không vào Internet. Reset có thể làm mất cấu
+hình, gây thêm biến số và khiến việc xác định nguyên nhân khó hơn.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 3
+
+========== TRANG 4 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+◇ CHƯƠNG 2. QUY TRÌNH TIẾP NHẬN VÀ XỬ LÝ TICKET
+1. Hỏi đúng câu hỏi
+Câu hỏi ┃ Mục đích
+Lỗi xảy ra từ khi nào? ┃ Xác định thời điểm và thay đổi gần đây.
+Chỉ máy này lỗi hay nhiều máy cùng lỗi? ┃ Khoanh vùng Endpoint hay hạ tầng.
+Thiết bị kết nối bằng Wi-Fi hay dây mạng? ┃ Chọn nhánh kiểm tra.
+Có thông báo lỗi nào không? ┃ Lấy bằng chứng thay vì đoán.
+Người dùng đã thử gì? ┃ Tránh lặp lại thao tác hoặc bỏ sót thay đổi.
+2. Ghi nhận baseline trước khi thay đổi
+ ┃ Tên máy: hostname
+ ┃ Tài khoản: whoami
+ ┃ IPv4 / Gateway / DNS: ipconfig /all
+ ┃ Trạng thái Wi-Fi: netsh wlan show interfaces
+ ┃ Thời điểm và thông báo lỗi
+3. Xác nhận sau khi sửa
+Đừng kết thúc ticket ngay khi “đã chạy được lệnh”. Hãy kiểm tra lại chức năng người dùng thực sự
+cần: mở website, in thử, truy cập thư mục mạng, kết nối ứng dụng hoặc thực hiện thao tác công việc.
+Mẫu ghi chú
+Symptom Findings Root cause nghi ngờ Action taken Verification Kết quả.→ → → → →
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 4
+
+========== TRANG 5 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+▣ CHƯƠNG 3. KIỂM TRA PHẦN CỨNG VÀ KẾT NỐI VẬT LÝ
+A. Máy tính không có mạng bằng dây
+1. Kiểm tra dây mạng có cắm chắc vào cả máy và switch/ổ cắm mạng.
+2. Quan sát đèn Link/Activity ở cổng mạng nếu có.
+3. Thử dây hoặc cổng switch khác đã biết là tốt.
+4. Kiểm tra adapter Ethernet trên Device Manager.
+5. Sau đó mới dùng ipconfig /all và netsh interface show interface.
+Triệu chứng ┃ Khả năng ┃ Kiểm tra
+Không có đèn link ┃ Dây, jack, port hoặc NIC ┃ Đổi dây/port; kiểm tra đèn
+Có link nhưng không có IP ┃ DHCP/VLAN/cấu hình ┃ ipconfig /all
+Có IP nhưng không ra mạng ┃ Gateway/Router/DNS ┃ ping Gateway 8.8.8.8 nslookup→ →
+Chỉ một ứng dụng lỗi ┃ Ứng dụng/proxy/firewall ┃ Kiểm tra riêng ứng dụng
+B. Máy tính dùng Wi-Fi
+ ┃ Kiểm tra Wi-Fi có bật, Airplane Mode có tắt.
+ ┃ Kiểm tra chất lượng tín hiệu, băng tần 2.4/5 GHz và vị trí thiết bị.
+ ┃ Nếu Wi-Fi không xuất hiện, kiểm tra driver và adapter trước khi xử lý IP.
+Phân biệt thiết bị
+Adapter/NIC là phần giao tiếp mạng của máy. Access Point phát Wi-Fi. Switch kết nối các thiết bị
+có dây trong LAN. Router/Gateway kết nối LAN với mạng khác và thường cấp/định tuyến Internet.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 5
+
+========== TRANG 6 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+◉ CHƯƠNG 4. XỬ LÝ WI-FI
+Tình huống 4.1 - Không thấy mạng Wi-Fi cần kết nối
+1. Mở Settings Network & Internet Wi-Fi và xác nhận Wi-Fi đang bật.→ →
+2. Kiểm tra Airplane Mode.
+3. Chạy netsh wlan show interfaces để xem adapter có hoạt động không.
+4. Chạy netsh wlan show networks để xem máy quét thấy SSID nào.
+5. Chạy netsh wlan show drivers để xác nhận driver và chuẩn Wi-Fi hỗ trợ.
+6. Kiểm tra Device Manager Network adapters; nếu có cảnh báo vàng, xử lý driver/thiết bị.→
+netsh wlan show interfaces
+Xem SSID hiện tại, trạng thái kết nối, tín hiệu, kênh, chuẩn radio và xác thực.
+netsh wlan show networks mode=bssid
+Xem danh sách mạng và BSSID/kênh/tín hiệu để phân tích môi trường Wi-Fi.
+netsh wlan show drivers
+Xem adapter và các chuẩn radio mà driver hỗ trợ.
+Dấu hiệu cần chú ý
+Wi-Fi adapter biến mất khỏi Device Manager có thể liên quan driver, BIOS/UEFI, lỗi phần cứng
+hoặc adapter bị vô hiệu hóa.
+Tình huống 4.2 - Đã kết nối Wi-Fi nhưng không có Internet
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 6
+
+========== TRANG 7 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+Thực hiện theo thứ tự. Mỗi bước trả lời một câu hỏi khác nhau: Wi-Fi có thực sự kết nối? Máy có IP?
+Có nói chuyện được với Gateway? Có ra Internet bằng IP? DNS có phân giải tên?
+1. Kiểm tra Wi-Fi interface.
+2. Kiểm tra IPv4, Subnet Mask, Default Gateway và DNS.
+3. Ping Gateway.
+4. Ping 8.8.8.8 hoặc một địa chỉ Internet phù hợp.
+5. Dùng nslookup để kiểm tra DNS.
+Tình huống 4.3 - Wi-Fi chập chờn / tốc độ kém
+1. Kiểm tra Signal bằng netsh wlan show interfaces.
+2. Kiểm tra kênh bằng netsh wlan show networks mode=bssid.
+3. Thử di chuyển thiết bị gần Access Point hơn.
+4. So sánh 2.4 GHz và 5 GHz nếu hệ thống cung cấp cả hai.
+5. Cập nhật driver Wi-Fi.
+6. Xem báo cáo WLAN để tìm các lần disconnect.
+netsh wlan show wlanreport
+Windows tạo báo cáo lịch sử kết nối Wi-Fi để phân tích các lần kết nối/ngắt kết nối.
+Không chỉ nhìn vào “vạch sóng”
+Tín hiệu mạnh không đảm bảo Internet tốt. Có thể vẫn lỗi DHCP, Gateway, DNS, tải cao, nhiễu hoặc
+Access Point đang gặp vấn đề.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 7
+
+========== TRANG 8 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+Tình huống 4.4 - Xem Wi-Fi profile đã lưu
+netsh wlan show profiles
+Liệt kê các Wi-Fi profile được lưu trên Windows.
+netsh wlan show profile name="TEN_WIFI" key=clear
+Hiển thị chi tiết profile; với mạng gia đình đã lưu mật khẩu, Windows có thể hiện khóa trong phần Key
+Content khi tài khoản có quyền phù hợp.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+Lưu ý về an toàn
+Chỉ xem hoặc quản trị profile trên máy và mạng mà bạn được phép quản lý. Việc biết SSID không
+tự động cho phép truy cập vào mạng.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 8
+
+========== TRANG 9 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+▰ CHƯƠNG 5. XỬ LÝ MẠNG LAN
+Tình huống 5.1 - Cắm dây mạng nhưng không có kết nối
+1. Kiểm tra dây RJ45 và điểm cắm.
+2. Kiểm tra đèn Link/Activity.
+3. Thử dây/cổng khác nếu có thể.
+4. Kiểm tra adapter bằng netsh interface show interface.
+5. Chạy ipconfig /all.
+6. Nếu có IPv4 169.254.x.x, nghi ngờ DHCP không cấp địa chỉ bình thường.
+7. Kiểm tra Gateway bằng ping.
+netsh interface show interface
+Xem trạng thái Enabled/Disabled và Connected/Disconnected của các interface.
+ipconfig /all
+Xem IPv4, IPv6, Subnet Mask, DHCP, Gateway, DNS và Physical Address.
+169.254.x.x
+Đây thường là địa chỉ APIPA do Windows tự gán khi không nhận được cấu hình IPv4 từ DHCP. Hãy
+kiểm tra dây, switch/VLAN, DHCP và cấu hình trước khi kết luận.
+Tình huống 5.2 - Máy nhận IP nhưng không truy cập được tài nguyên nội bộ
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 9
+
+========== TRANG 10 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+1. Kiểm tra đúng Subnet và Gateway bằng ipconfig /all.
+2. Ping Gateway.
+3. Ping IP của máy chủ/tài nguyên nội bộ nếu ICMP được cho phép.
+4. Kiểm tra VLAN/segment nếu nhiều máy cùng gặp lỗi.
+5. Kiểm tra firewall hoặc chính sách truy cập nếu chỉ một dịch vụ không vào được.
+Tình huống 5.3 - Máy A không ping được Máy B
+ ┃ Xác nhận hai máy có cùng mạng/VLAN hoặc có route phù hợp.
+ ┃ Kiểm tra Windows Firewall và chính sách ICMP.
+ ┃ Kiểm tra IP/MAC bằng ipconfig /all và arp -a.
+ ┃ Không kết luận “mạng hỏng” chỉ từ một lần ping thất bại, vì firewall có thể chặn ICMP.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 10
+
+========== TRANG 11 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+◎ CHƯƠNG 6. XỬ LÝ INTERNET, DNS VÀ DHCP
+Mô hình chẩn đoán 4 tầng
+Kiểm tra ┃ Lệnh ┃ Nếu thất bại
+TCP/IP local ┃ ping 127.0.0.1 ┃ Xem xét stack/cấu hình hệ thống
+Gateway ┃ ping <gateway> ┃ Kiểm tra LAN/router/VLAN/firewall
+Internet IP ┃ ping 8.8.8.8 ┃ Kiểm tra router/ISP/đường ra
+DNS ┃ nslookup google.com ┃ Kiểm tra DNS server, cache, cấu hình
+Tình huống 6.1 - Ping IP được nhưng tên miền không được
+1. Chạy nslookup google.com.
+2. Xem DNS server đang trả lời là ai.
+3. Thử truy vấn một DNS server phù hợp được tổ chức cho phép.
+4. Xóa DNS cache bằng ipconfig /flushdns nếu nghi cache cũ.
+5. Kiểm tra lại nslookup và ứng dụng.
+nslookup google.com
+Kiểm tra việc phân giải tên miền.
+ipconfig /displaydns
+Xem DNS cache hiện tại.
+ipconfig /flushdns
+Xóa DNS cache cục bộ.
+Tình huống 6.2 - Không nhận được IP từ DHCP
+1. Chạy ipconfig /all để xác định DHCP Enabled và IPv4 hiện tại.
+2. Kiểm tra cable/Wi-Fi và kết nối đến mạng nội bộ.
+3. Chạy ipconfig /release rồi ipconfig /renew.
+4. Nếu vẫn không có IPv4 phù hợp, kiểm tra DHCP server, VLAN, switch port hoặc policy.
+ipconfig /release
+Giải phóng địa chỉ IPv4 hiện tại.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 11
+
+========== TRANG 12 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+ipconfig /renew
+Yêu cầu DHCP cấp/cấp lại cấu hình IPv4.
+Không nhầm DHCP với DNS
+DHCP giúp thiết bị nhận cấu hình mạng như IP, subnet, gateway, DNS. DNS giúp biến tên miền
+thành địa chỉ IP. Hai thành phần khác nhau.
+Tình huống 6.3 - Truy cập chậm hoặc đường đi bất thường
+tracert google.com
+Xem các hop trên đường đi từ máy đến đích.
+pathping google.com
+Kết hợp traceroute và đo lường mất gói/độ trễ theo thời gian.
+Cẩn thận khi diễn giải traceroute
+Một hop không trả lời ICMP không nhất thiết là lỗi. Thiết bị trung gian có thể chặn hoặc giới hạn
+phản hồi.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 12
+
+========== TRANG 13 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+▣ CHƯƠNG 7. XỬ LÝ MÁY IN
+Tình huống 7.1 - Máy in Offline / không in được
+1. Kiểm tra nguồn máy in, giấy, mực và đèn cảnh báo trên máy.
+2. Kiểm tra cáp USB hoặc cáp mạng.
+3. Mở control printers để xác nhận máy in có tồn tại trên Windows.
+4. Nếu máy in mạng, ping địa chỉ IP của máy in.
+5. Kiểm tra Print Spooler bằng sc query spooler.
+6. Xóa job bị kẹt, sau đó thử in trang kiểm tra.
+control printers
+Mở danh sách máy in trong Windows.
+sc query spooler
+Kiểm tra trạng thái dịch vụ Print Spooler.
+net stop spooler
+Dừng Print Spooler để xử lý queue/service.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+net start spooler
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 13
+
+========== TRANG 14 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+Khởi động lại Print Spooler.
+Tình huống 7.2 - Máy in mạng không ping được
+1. Đọc IP máy in từ màn hình/configuration page hoặc hệ thống quản trị.
+2. Ping IP máy in.
+3. Nếu không ping được, kiểm tra nguồn, cable, switch port, DHCP/Static IP và VLAN.
+4. Nếu ping được nhưng vẫn không in, kiểm tra queue, driver, port cấu hình của Windows và Print
+Spooler.
+Một máy không in được
+Có thể lỗi ở client, driver hoặc queue. Nhiều máy cùng không in được thường làm tăng khả năng
+lỗi ở printer, server in, switch/VLAN hoặc hạ tầng dùng chung.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 14
+
+========== TRANG 15 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+▤ CHƯƠNG 8. XỬ LÝ WINDOWS, PROCESS, SERVICE VÀ
+DRIVER
+Tình huống 8.1 - Ứng dụng bị treo
+tasklist
+Liệt kê các process đang chạy.
+tasklist | findstr chrome
+Tìm process theo tên.
+taskkill /PID 1234 /F
+Kết thúc process theo PID; dùng thận trọng.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+taskkill /IM chrome.exe /F
+Kết thúc process theo tên; dùng thận trọng.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+Tình huống 8.2 - Dịch vụ Windows không chạy
+sc query spooler
+Mẫu kiểm tra một service.
+net start "Service Name"
+Khởi động service nếu tài khoản có quyền.
+net stop "Service Name"
+Dừng service nếu cần và nếu được phép.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 15
+
+========== TRANG 16 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+Nguyên tắc service
+Trước khi restart service, ghi nhận trạng thái hiện tại và xác nhận ảnh hưởng. Một service có thể
+là phụ thuộc của nhiều ứng dụng.
+Tình huống 8.3 - Driver mạng/thiết bị lỗi
+driverquery
+Liệt kê driver đang có trong hệ thống.
+driverquery /v
+Xem thông tin chi tiết hơn về driver.
+devmgmt.msc
+Mở Device Manager để kiểm tra thiết bị, driver và mã lỗi.
+1. Mở Device Manager và tìm adapter/thiết bị lỗi.
+2. Ghi nhận tên model và trạng thái.
+3. Kiểm tra driver phù hợp từ nguồn quản trị tin cậy.
+4. Cập nhật/rollback theo chính sách hỗ trợ.
+5. Khởi động lại nếu cần và xác nhận thiết bị trở lại bình thường.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 16
+
+========== TRANG 17 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+◫ CHƯƠNG 9. XỬ LÝ WINDOWS VÀ Ổ ĐĨA
+Tình huống 9.1 - Nghi ngờ file hệ thống Windows bị hỏng
+sfc /scannow
+Kiểm tra và cố gắng sửa các file hệ thống được bảo vệ.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+DISM /Online /Cleanup-Image /RestoreHealth
+Sửa kho thành phần Windows; có thể cần quyền quản trị và thời gian xử lý.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+1. Mở CMD/Terminal bằng quyền Administrator.
+2. Chạy DISM khi nghi component store có vấn đề.
+3. Sau đó chạy sfc /scannow.
+4. Khởi động lại nếu được yêu cầu.
+5. Kiểm tra lại triệu chứng ban đầu.
+Tình huống 9.2 - Ổ đĩa có dấu hiệu lỗi logic
+chkdsk
+Kiểm tra trạng thái file system mà chưa yêu cầu sửa lỗi.
+chkdsk C: /f
+Sửa lỗi file system; có thể yêu cầu lên lịch khi khởi động lại.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+Cảnh báo dữ liệu
+Không dùng các thao tác sửa đĩa một cách máy móc trên máy có dữ liệu quan trọng. Với ổ có dấu
+hiệu vật lý hỏng, ưu tiên bảo toàn dữ liệu và quy trình phục hồi của tổ chức.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 17
+
+========== TRANG 18 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+⌁ CHƯƠNG 10. ĐIỀU TRA MẠNG CƠ BẢN
+ARP
+arp -a
+Xem ánh xạ IP MAC mà máy đang lưu trong ARP cache.↔
+Routing
+route print
+Xem routing table, interface và gateway mà Windows dùng.
+Kết nối và port
+netstat
+Xem các kết nối mạng cơ bản.
+netstat -ano
+Xem kết nối, port, trạng thái và PID tương ứng.
+Cách đọc nhanh
+arp -a trả lời “máy biết MAC nào?”, route print trả lời “gói sẽ đi theo route nào?”, netstat -ano trả
+lời “ứng dụng nào đang giữ kết nối/port?”.
+Thông tin máy
+hostname
+Tên máy Windows.
+whoami
+Tài khoản hiện tại.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 18
+
+========== TRANG 19 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+systeminfo
+Thông tin hệ thống, OS, phần cứng và cấu hình cơ bản.
+msinfo32
+Mở System Information để xem thông tin hệ thống chi tiết.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 19
+
+========== TRANG 20 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+⌘ CHƯƠNG 11. TRANG LỆNH CMD THAM KHẢO
+Trang này gom các lệnh đã dùng trong sổ tay. Hãy nhớ mục đích của lệnh, không chỉ nhớ cú pháp.
+Lệnh ┃ Công dụng
+ipconfig /all ┃ Xem IP, subnet, DHCP, Gateway, DNS, MAC.
+ipconfig ┃ Tóm tắt cấu hình IP.
+ipconfig /release ┃ Giải phóng IPv4 hiện tại.
+ipconfig /renew ┃ Xin lại IPv4 từ DHCP.
+ipconfig /flushdns ┃ Xóa DNS cache.
+ipconfig /displaydns ┃ Xem DNS cache.
+ping <đích> ┃ Kiểm tra khả năng liên lạc theo ICMP.
+tracert <đích> ┃ Xem các hop trên đường đi.
+pathping <đích> ┃ Đo đường đi và mất gói/độ trễ.
+nslookup <tên> ┃ Kiểm tra phân giải DNS.
+arp -a ┃ Xem ARP cache.
+route print ┃ Xem routing table.
+netstat -ano ┃ Xem kết nối/port và PID.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 20
+
+========== TRANG 21 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+⌘ CHƯƠNG 11. LỆNH WI-FI, ADAPTER VÀ HỆ THỐNG
+Lệnh ┃ Công dụng
+netsh wlan show interfaces ┃ Trạng thái Wi-Fi hiện tại, SSID, tín hiệu, kênh, xác
+thực.
+netsh wlan show networks ┃ Danh sách SSID nhìn thấy.
+netsh wlan show networks mode=bssid ┃ SSID + BSSID + tín hiệu + kênh.
+netsh wlan show drivers ┃ Driver và chuẩn Wi-Fi hỗ trợ.
+netsh wlan show profiles ┃ Wi-Fi profile đã lưu.
+netsh wlan show profile name="TEN_WIFI" key=clear ┃ Chi tiết profile; có thể hiển thị khóa đã lưu khi
+được phép.
+netsh wlan show wlanreport ┃ Tạo báo cáo lịch sử Wi-Fi.
+netsh interface show interface ┃ Trạng thái network interface.
+netsh winsock reset ┃ Reset Winsock; thường cần khởi động lại.
+netsh int ip reset ┃ Reset TCP/IP; thường cần khởi động lại.
+hostname ┃ Tên máy.
+whoami ┃ User hiện tại.
+systeminfo ┃ Thông tin hệ thống.
+driverquery /v ┃ Thông tin driver chi tiết.
+tasklist ┃ Danh sách process.
+taskkill /PID <PID> /F ┃ Kết thúc process theo PID.
+sc query <service> ┃ Kiểm tra service.
+net start "Service Name" ┃ Khởi động service.
+net stop "Service Name" ┃ Dừng service.
+chkdsk ┃ Kiểm tra file system.
+chkdsk C: /f ┃ Sửa lỗi file system.
+sfc /scannow ┃ Kiểm tra/sửa file hệ thống.
+DISM /Online /Cleanup-Image /RestoreHealth ┃ Sửa Windows component store.
+control printers ┃ Mở danh sách máy in.
+printmanagement.msc ┃ Mở Print Management nếu phiên bản Windows
+hỗ trợ.
+devmgmt.msc ┃ Mở Device Manager.
+eventvwr.msc ┃ Mở Event Viewer.
+msinfo32 ┃ Mở System Information.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 21
+
+========== TRANG 22 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+⌘ CHƯƠNG 11. CÁC “COMBO” CHẨN ĐOÁN NHANH
+Combo A - Mất Internet
+ipconfig /all
+Bắt đầu bằng baseline IP.
+ping <gateway>
+Kiểm tra LAN tới gateway.
+ping 8.8.8.8
+Kiểm tra đường ra Internet bằng IP.
+nslookup google.com
+Kiểm tra DNS.
+Combo B - Wi-Fi có vấn đề
+netsh wlan show interfaces
+netsh wlan show drivers
+netsh wlan show wlanreport
+Combo C - Máy in không in
+ping <IP-may-in>
+sc query spooler
+net stop spooler && net start spooler
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 22
+
+========== TRANG 23 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+Restart nhanh Print Spooler; dùng khi phù hợp.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+Combo D - Windows nghi lỗi hệ thống
+DISM /Online /Cleanup-Image /RestoreHealth
+Sau đó chạy SFC.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+sfc /scannow
+Xác nhận/sửa file hệ thống.
+⚠ Quyền quản trị hoặc khởi động lại có thể được yêu cầu.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 23
+
+========== TRANG 24 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+☑ CHƯƠNG 12. CHECKLIST IT HELPDESK
+Checklist 60 giây khi nhận một sự cố mạng
+□ Xác nhận triệu chứng bằng chính thao tác người dùng báo lỗi.
+□ Hỏi lỗi bắt đầu khi nào và có thay đổi gì gần đây.
+□ Kiểm tra nguồn, dây, đèn báo, Wi-Fi/Airplane Mode.
+□ Xác định chỉ một máy hay nhiều máy cùng lỗi.
+□ Chạy ipconfig /all để chụp baseline.
+□ Ping 127.0.0.1 khi cần kiểm tra TCP/IP local.
+□ Ping Gateway để kiểm tra LAN.
+□ Ping 8.8.8.8 hoặc đích Internet phù hợp.
+□ Dùng nslookup khi nghi DNS.
+□ Kiểm tra driver/device nếu adapter biến mất hoặc có cảnh báo.
+□ Khắc phục từng thay đổi một và ghi nhận.
+□ Xác nhận lại thao tác nghiệp vụ của người dùng.
+□ Ghi lại nguyên nhân, hành động và kết quả vào ticket.
+Mẹo nghề
+Một Helpdesk giỏi không phải người biết nhiều lệnh nhất. Đó là người khoanh vùng nhanh, thay
+đổi có kiểm soát và để lại bằng chứng đủ rõ cho người xử lý ở tầng tiếp theo.
+Khi nào cần escalation?
+ ┃ Nhiều thiết bị cùng lỗi và đã xác định phạm vi ở switch/router/VLAN/DHCP/DNS.
+ ┃ Lỗi phần cứng vật lý vượt quyền thay thế/sửa của Helpdesk.
+ ┃ Có dấu hiệu sự cố bảo mật, tài khoản bị xâm nhập hoặc thiết bị bất thường.
+ ┃ Cần thay đổi cấu hình hạ tầng sản xuất theo quy trình quản trị thay đổi.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 24
+
+========== TRANG 25 ==========  [hinh: Im11=obj11, Im228=obj228, Im436=obj436, Im48=obj48]
+IT HELPDESK | TROUBLESHOOTING HANDBOOK
+▤ PHỤ LỤC. QUICK REFERENCE
+Triệu chứng ┃ Bước đầu tiên ┃ Lệnh gợi ý
+Wi-Fi không thấy SSID ┃ Kiểm tra adapter + Wi-Fi ┃ netsh wlan show interfaces
+Wi-Fi connected, no Internet ┃ Kiểm tra IP/Gateway ┃ ipconfig /all + ping
+IP 169.254.x.x ┃ Kiểm tra DHCP ┃ ipconfig /renew
+Tên miền không mở ┃ Kiểm tra DNS ┃ nslookup + ipconfig /flushdns
+LAN chập chờn ┃ Kiểm tra dây/port/link ┃ netsh interface show interface
+Máy in không in ┃ Kiểm tra Printer + Spooler ┃ sc query spooler
+App bị treo ┃ Kiểm tra process ┃ tasklist
+Driver lỗi ┃ Device Manager ┃ devmgmt.msc
+Windows nghi hỏng file ┃ Sửa component + system files ┃ DISM + sfc /scannow
+Kiểm tra đường đi ┃ Phân tích route/hop ┃ tracert + pathping
+Ghi nhớ
+Từ vật lý adapter IP Gateway Internet DNS ứng dụng. Đây là “xương sống” của quy → → → → → →
+trình chẩn đoán mạng cho Helpdesk.
+IT Helpdesk - Sổ tay xử lý sự cố căn bản | Trang 25

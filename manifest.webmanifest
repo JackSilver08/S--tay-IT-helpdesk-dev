@@ -1,0 +1,18 @@
+{
+  "name": "Sổ tay xử lý sự cố căn bản cho IT Helpdesk",
+  "short_name": "Sổ tay IT Helpdesk",
+  "description": "Hardware, Windows, LAN, Wi-Fi, Internet, DNS, DHCP, máy in và CMD — tra cứu nhanh trên desktop và điện thoại.",
+  "lang": "vi",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f2ea",
+  "theme_color": "#10233b",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
