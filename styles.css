@@ -1078,6 +1078,15 @@ h1 em, .chapter-head h2 em { color: var(--blue); font-style: italic; font-weight
    - mặc định (Ctrl+P): đen trắng, tiết kiệm mực, gọn trang.
    - html.pdf-color: giữ nguyên màu và diện mạo bản web, dùng khi xuất PDF để đọc. */
 
+/* Lề cho bản Ctrl+P. Không CSS nào tắt được header/footer của trình duyệt
+   (URL, ngày tháng, "1/30"); lề dưới rộng hơn để chúng không đè lên nội dung.
+   Muốn sạch hẳn thì tắt "Headers and footers" trong hộp thoại in, hoặc dùng
+   thẳng file PDF đã xuất sẵn. */
+@page {
+  size: A4;
+  margin: 14mm 13mm 17mm;
+}
+
 @media print {
   .topbar,
   .sidebar,
@@ -1101,6 +1110,9 @@ h1 em, .chapter-head h2 em { color: var(--blue); font-style: italic; font-weight
      whole chapter is longer than a page, so asking it not to break just pushed
      it wholesale to the next sheet and left the previous one blank. */
   .scenario, .block, .cmd, .note-card, .ladder li, .layer, .combo-steps li, .baseline-item, .signal-card, .callout { break-inside: avoid; page-break-inside: avoid; }
+  /* Các thẻ này chỉ cao trên dưới 90px; không chặn thì tờ trước giữ lại đúng
+     đường viền trên còn chữ rơi sang tờ sau. */
+  .triage-cards, .triage-card, .process-flow, .process-flow li { break-inside: avoid; page-break-inside: avoid; }
   .chapter-head { break-inside: avoid; page-break-inside: avoid; break-after: avoid; page-break-after: avoid; }
   .scenario-head, .block-title, .combo-title { break-after: avoid; page-break-after: avoid; }
 
@@ -1117,6 +1129,56 @@ h1 em, .chapter-head h2 em { color: var(--blue); font-style: italic; font-weight
   .checklist input { -webkit-appearance: checkbox; appearance: checkbox; }
   [role="tabpanel"][hidden] { display: block !important; }
   .combo-tabs { display: none !important; }
+
+  /* Trên web các ô này cao bằng nhau nhờ min-height, và tiêu đề bị `margin-top:
+     auto` đẩy xuống đáy ô. Khi in, lưới rút còn 3 cột nên ô rộng gấp đôi, chữ
+     chỉ chiếm một dòng — số thứ tự nằm chơ vơ trên đỉnh, cách tiêu đề cả một
+     khoảng trống. Bỏ chiều cao ép và cho số dính sát tiêu đề. */
+  .process-flow li { min-height: 0; gap: 7px; padding: 13px 14px; }
+  .process-flow strong { margin-top: 0; }
+  .triage-card { min-height: 0; padding: 14px 15px; }
+  .triage-card strong { margin-top: 7px; }
+  /* Mũi tên chỉ có nghĩa khi bấm được, và nó neo vào đáy ô vừa bỏ min-height. */
+  .triage-card .arrow { display: none; }
+
+  /* Nén khoảng trắng khi in. Mỗi chương mở ở đầu trang mới, nên phần dôi ra ở
+     cuối chương rơi trọn xuống một trang gần trống — đo được 12/30 trang dưới
+     55% nội dung. Khoảng cách dựng cho màn hình rộng là thứ đẩy chúng dôi ra,
+     nên kéo xuống mức vừa đủ thoáng cho khổ A4. */
+  /* Vùng in của khổ A4 chỉ rộng ~690px khi có lề, tức vẫn lọt vào ngưỡng
+     720px dành cho điện thoại — nên bản đen trắng thừa hưởng luôn cả gói quy
+     tắc một cột: đoạn dẫn chương tràn ra sát mép trái trong khi tiêu đề thụt
+     vào, còn mọi lưới xếp dọc làm tài liệu dài thêm bảy tờ. Giấy ngang 690px
+     vẫn thừa chỗ cho nhiều cột, nên dựng lại lưới ở đây. */
+  .chapter-head { grid-template-columns: 62px minmax(0, 1fr); gap: 18px; margin-bottom: 20px; }
+  .chapter-number { font-size: 2.5rem; }
+  .chapter-head h2 { margin-top: 6px; font-size: 1.9rem; }
+  .chapter-deck { grid-column: 2; max-width: 620px; margin-top: 7px; font-size: 0.94rem; line-height: 1.42; }
+
+  .process-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .process-flow li { flex-flow: column; }
+  .process-flow small { flex: 0 1 auto; padding-left: 0; }
+  .triage-cards { grid-template-columns: repeat(3, 1fr); }
+  .cmd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cmd-line { flex-direction: row; align-items: center; }
+  .cmd-line code { width: auto; }
+  .ladder li { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
+  .split-layout + .split-layout,
+  .block + .block,
+  .scenario + .scenario,
+  .block + .scenario,
+  .scenario + .block,
+  .split-layout + .scenario,
+  .scenario + .split-layout,
+  .block + .split-layout,
+  .split-layout + .block { margin-top: 12px; }
+  .block { padding: 18px 20px; }
+  .block-title { margin-bottom: 12px; font-size: 1.28rem; }
+
+  /* Dòng kết cỡ 3.5rem bị ngắt ngang thân chữ giữa hai tờ. Giữ cả khối trên
+     một tờ và hạ cỡ chữ cho vừa khổ A4. */
+  .closing-callout { break-inside: avoid; page-break-inside: avoid; }
+  .closing-callout h2 { margin: 14px 0; font-size: 2.6rem; }
 }
 
 /* --- chế độ đen trắng --- */
@@ -1169,13 +1231,20 @@ h1 em, .chapter-head h2 em { color: var(--blue); font-style: italic; font-weight
   html.pdf-color .triage-strip,
   html.pdf-color .chapter,
   html.pdf-color .spine-band,
-  html.pdf-color .closing-callout { padding: 44px 46px; }
+  html.pdf-color .closing-callout { padding: 32px 46px; }
 
   /* Bìa chiếm trọn trang đầu, nội dung dàn giữa theo chiều cao trang. */
   html.pdf-color .hero { min-height: 86vh; align-content: center; padding-top: 60px; break-after: page; page-break-after: always; }
   /* Mỗi chương mở ở đầu trang mới. Nếu để chảy tiếp, phần thừa cuối chương là
      một mảng nền màu trống — ở bản đen trắng thì không thấy, ở bản màu thì rất rõ. */
-  html.pdf-color .chapter { border-bottom: 0; break-before: page; page-break-before: always; }
+  /* Chương chảy tiếp thay vì mỗi chương một tờ mới: ép ngắt trang đẩy phần dôi
+     ra của mười chương xuống mười tờ gần trống (đo được 10/28 tờ dưới 55%).
+     Cho chảy tiếp còn 23 tờ và 2 tờ hụt. */
+  html.pdf-color .chapter { border-bottom: 0; }
+  /* Nhưng nếu tiêu đề chương vẫn bị đẩy nguyên khối sang tờ sau, nền màu của
+     chương mới đã bắt đầu ở cuối tờ trước và nằm đó trống trơn. Cho tiêu đề ở
+     lại lấp chỗ đó — khối vẫn không bị cắt đôi nhờ break-inside. */
+  html.pdf-color .chapter-head { break-after: auto; page-break-after: auto; }
   html.pdf-color .chapter-head { margin-bottom: 30px; }
-  html.pdf-color .closing-callout { padding-top: 70px; padding-bottom: 70px; }
+  html.pdf-color .closing-callout { padding-top: 46px; padding-bottom: 46px; }
 }

@@ -37,6 +37,8 @@ tools/verify.js                     bộ kiểm thử trình duyệt (chỉ dùn
 tools/build-single-file.js          gộp tất cả vào một file HTML
 tools/check-single-file.js          kiểm chứng file gộp chạy độc lập
 tools/export-pdf.js                 xuất lại hai bản PDF
+tools/pdf-kit.js                    đánh số trang vào PDF, đo độ đầy từng trang
+tools/pdf-pages.js                  chụp ảnh từng trang PDF để soi bố cục
 ```
 
 ## Mang sổ tay đi đâu cũng đọc được
@@ -124,13 +126,48 @@ bảng xếp thành thẻ dọc, không tràn ngang ở 390px, không lỗi cons
 node tools/export-pdf.js
 ```
 
-Sinh cùng lúc hai file và chụp lại trang bìa để kiểm tra:
+Sinh cùng lúc hai file, đánh số trang và chụp lại trang bìa để kiểm tra:
 
-- `So_Tay_IT_Helpdesk_Ban_Web.pdf` — nền màu tràn mép giấy, mỗi chương mở ở đầu trang mới.
-- `So_Tay_IT_Helpdesk_Ban_In.pdf` — đen trắng, gọn trang.
+- `So_Tay_IT_Helpdesk_Ban_Web.pdf` — 22 trang, nền màu tràn mép giấy.
+- `So_Tay_IT_Helpdesk_Ban_In.pdf` — 23 trang, đen trắng, gọn trang.
 
 Hai bản dùng chung `@media print`; bản màu bật bằng class `pdf-color` trên thẻ `html`,
 nên `Ctrl+P` trực tiếp trên trình duyệt vẫn ra bản đen trắng tiết kiệm mực.
+
+### Số trang
+
+Chrome chỉ biết đặt số trang trong lề giấy, mà bản màu cố tình không chừa lề để nền
+tràn ra tận mép. Nên số trang được vẽ thẳng vào PDF sau khi xuất, bằng
+`tools/pdf-kit.js` — nó đọc màu nền ngay dưới chân từng trang rồi chọn màu chữ tương
+phản, để số vẫn đọc được cả trên nền kem lẫn trên chương nền tối. Trang bìa không đánh số.
+
+Chạy riêng khi cần:
+
+```bash
+node tools/pdf-kit.js number <file.pdf>   # đánh số trang
+node tools/pdf-kit.js fill   <file.pdf>   # đo độ đầy từng trang, tìm trang hụt
+node tools/pdf-pages.js      <file.pdf> 3 7   # chụp ảnh trang 3 và 7
+```
+
+### Hai cái bẫy của khổ A4
+
+**Quy tắc điện thoại lọt vào bản in.** Vùng in của A4 khi có lề chỉ rộng khoảng 690px,
+tức vẫn nằm dưới ngưỡng `max-width: 720px`. Bản đen trắng vì thế thừa hưởng cả gói quy
+tắc một cột: mọi lưới xếp dọc và tài liệu phình từ 23 lên 29 tờ, còn đoạn dẫn chương thì
+tràn ra sát mép trái trong khi tiêu đề vẫn thụt vào. Khối `@media print` dựng lại lưới
+nhiều cột cho khổ giấy.
+
+**Ép mỗi chương mở đầu tờ mới.** Nghe hợp lý nhưng đẩy phần dôi ra của mười chương xuống
+mười tờ gần trống — đo bằng `pdf-kit.js fill` thì 12/30 tờ có chưa tới 55% nội dung, có tờ
+chỉ 12%. Bỏ ép ngắt trang và cho tiêu đề chương ở lại lấp chỗ trống cuối tờ thì còn 22 tờ
+và không tờ nào hụt.
+
+### Header/footer khi bấm Ctrl+P
+
+Không CSS nào tắt được phần URL, ngày tháng và `1/23` mà trình duyệt tự in ở đầu và cuối
+trang. `@page` trong `styles.css` chỉ chừa lề đủ rộng để chúng không đè lên chữ. Muốn sạch
+hẳn thì bỏ chọn **Headers and footers** trong hộp thoại in, hoặc in thẳng file PDF đã xuất
+sẵn — hai file đó đã có số trang riêng.
 
 ## Ghi chú kỹ thuật
 

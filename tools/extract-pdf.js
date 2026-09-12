@@ -5,7 +5,7 @@ const fs = require("fs");
 const zlib = require("zlib");
 const path = require("path");
 
-const FILE = process.argv[2] || "C:/Users/tuant/Downloads/S\u1ed5 tay IT helpdesk dev/So_Tay_IT_Helpdesk_Can_Ban.pdf";
+const FILE = process.argv[2] || path.join(path.resolve(__dirname, ".."), "So_Tay_IT_Helpdesk_Can_Ban.pdf");
 const raw = fs.readFileSync(FILE);
 const latin = raw.toString("latin1");
 

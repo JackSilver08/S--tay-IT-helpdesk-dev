@@ -5,7 +5,7 @@ const path = require("path");
 const os = require("os");
 const { spawn } = require("child_process");
 
-const SOURCE = "C:/Users/tuant/Downloads/S\u1ed5 tay IT helpdesk dev/So_Tay_IT_Helpdesk.html";
+const SOURCE = path.join(path.resolve(__dirname, ".."), "So_Tay_IT_Helpdesk.html");
 const BROWSERS = [
   "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
   "C:/Program Files/Microsoft/Edge/Application/msedge.exe",

@@ -11,6 +11,7 @@ const fs = require("fs");
 const path = require("path");
 const { spawn } = require("child_process");
 const os = require("os");
+const { numberPages } = require("./pdf-kit.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const PORT = 8772;
@@ -112,6 +113,16 @@ const countPages = (buffer) => (buffer.toString("latin1").match(/\/Type\s*\/Page
   await send("Page.navigate", { url: "http://127.0.0.1:" + PORT + "/index.html" });
   await sleep(2500);
 
+  // styles.css dat @page margin cho nguoi bam Ctrl+P, de header/footer cua
+  // trinh duyet khong de len chu. Le o day do printToPDF quyet dinh, nen phai
+  // go rule do ra - neu khong hai le cong don, nen mau thoi tran mep giay va
+  // tai lieu phinh them mot trang.
+  await ev(
+    "(() => { const s = document.createElement('style');" +
+    " s.textContent = '@page { size: auto; margin: 0 }';" +
+    " document.head.appendChild(s); return true; })()"
+  );
+
   const blocks = await ev("document.querySelectorAll('[data-searchable]').length");
   const commands = await ev("document.querySelectorAll('.cmd-line code').length");
   console.log("Noi dung   : " + blocks + " khoi, " + commands + " lenh");
@@ -139,6 +150,10 @@ const countPages = (buffer) => (buffer.toString("latin1").match(/\/Type\s*\/Page
     console.log(
       "Da xuat " + mode.label + ": " + mode.file + "  (" + Math.round(buffer.length / 1024) + " KB, " + countPages(buffer) + " trang)"
     );
+
+    // Chrome chi biet dat so trang trong le giay, ma ban mau khong co le - nen
+    // ve thang vao PDF sau khi xuat.
+    numberPages(dest);
   }
 
   // Doc lai ban mau bang chinh trinh duyet de chup bang chung trang bia.

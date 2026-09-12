@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = "C:/Users/tuant/Downloads/S\u1ed5 tay IT helpdesk dev";
+const ROOT = path.resolve(__dirname, "..");
 const source = fs.readFileSync(path.join(ROOT, "tools/noi-dung-goc.txt"), "utf8");
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 
